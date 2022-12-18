@@ -5,8 +5,8 @@
     "labels": {},
     "buttons": {},
     "tableHeaders": {
-      "name": "Name",
-      "surname": "Surname",
+      "name": "First name",
+      "surname": "Last name",
       "passport": "Passport",
       "firstServiceDate": "Entry date",
       "lastServiceDate": "Leaving date",

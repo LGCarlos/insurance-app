@@ -14,8 +14,8 @@ export interface ClientsSearchRequestModel {
 //Search response and Update Request
 export interface ClientModel {
   clientId: number;
-  name: string;
-  surname: string;
+  firstName: string;
+  lastName: string;
   passport: string;
   firstServiceDate: string;
   lastServiceDate?: string;
