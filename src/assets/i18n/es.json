@@ -1,2 +1,16 @@
 {
+  "common": {
+    "titles": {},
+    "subtitles": {},
+    "labels": {},
+    "buttons": {},
+    "tableHeaders": {
+      "name": "Nombre",
+      "surname": "Apellido",
+      "passport": "Pasaporte",
+      "firstServiceDate": "Fecha alta",
+      "lastServiceDate": "Fecha baja",
+      "debtor": "Deudor"
+    }
+  }
 }

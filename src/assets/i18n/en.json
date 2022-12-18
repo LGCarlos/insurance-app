@@ -1,2 +1,16 @@
 {
+  "common": {
+    "titles": {},
+    "subtitles": {},
+    "labels": {},
+    "buttons": {},
+    "tableHeaders": {
+      "name": "Name",
+      "surname": "Surname",
+      "passport": "Passport",
+      "firstServiceDate": "Entry date",
+      "lastServiceDate": "Leaving date",
+      "debtor": "Debtor"
+    }
+  }
 }
