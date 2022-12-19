@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientModel } from 'src/app/models/CommonModels';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  clients!: ClientModel[];
+  constructor(private commonService: CommonService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.commonService.getClients().subscribe((res) => {
+      this.clients = res;
+    });
+  }
 }

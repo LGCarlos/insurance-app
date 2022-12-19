@@ -4,6 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ConstantsService {
+  // Server Url API
+  public static ServerUrl = 'https://api.example.com/';
+
+  // Endpoints API
+  public static Endpoints = {
+    Search: 'search',
+  };
+
+  // Urls
   public static UrlsComponents = {
     Home: 'home',
   };
