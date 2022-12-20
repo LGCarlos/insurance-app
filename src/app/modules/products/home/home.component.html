@@ -1,2 +1,10 @@
 <p>home works!</p>
 <button pButton type="button" label="Primary"></button>
+<p-autoComplete
+  [(ngModel)]="passport"
+  [suggestions]="filteredPassports"
+  (completeMethod)="filterPassport($event)"
+  field="name"
+  [dropdown]="true"
+>
+</p-autoComplete>

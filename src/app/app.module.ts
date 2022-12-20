@@ -4,6 +4,7 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -29,6 +30,7 @@ import { Interceptor } from './services/interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     ProductsModule,
+    FormsModule,
   ],
   providers: [
     {
