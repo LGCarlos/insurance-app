@@ -4,7 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ButtonModule } from 'primeng/button';
 import { AutoCompleteModule } from 'primeng/autocomplete';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ControlsModule } from 'src/app/controls/controls.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -14,6 +15,8 @@ import { FormsModule } from '@angular/forms';
     ButtonModule,
     AutoCompleteModule,
     FormsModule,
+    ControlsModule,
+    ReactiveFormsModule,
   ],
 })
 export class ProductsModule {}

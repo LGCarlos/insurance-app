@@ -1,10 +1,14 @@
 <p>home works!</p>
-<button pButton type="button" label="Primary"></button>
-<p-autoComplete
-  [(ngModel)]="passport"
-  [suggestions]="filteredPassports"
-  (completeMethod)="filterPassport($event)"
-  field="name"
-  [dropdown]="true"
->
-</p-autoComplete>
+<button
+  pButton
+  type="button"
+  label="Primary"
+  (click)="searchResultByPassport()"
+></button>
+<form>
+  <app-autocomplete-input
+    [inputControlValue]="getFormControl('passport')"
+    [suggestions]="suggestions"
+    (selectedOption)="filterPassport($event)"
+  ></app-autocomplete-input>
+</form>
