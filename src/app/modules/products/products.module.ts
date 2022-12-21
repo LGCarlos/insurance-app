@@ -7,6 +7,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ControlsModule } from 'src/app/controls/controls.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -19,6 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ControlsModule,
     ReactiveFormsModule,
     TranslateModule,
+    ComponentsModule,
   ],
 })
 export class ProductsModule {}

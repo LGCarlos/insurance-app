@@ -10,10 +10,14 @@ export class ConstantsService {
   // Endpoints API
   public static Endpoints = {
     Search: 'search',
+    User: 'user',
   };
 
   // Urls
   public static UrlsComponents = {
     Home: 'home',
   };
+
+  // Mock Token
+  public static Token = 'ae45kgtiy986OHJUer';
 }

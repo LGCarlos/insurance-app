@@ -25,6 +25,8 @@ export class Interceptor implements HttpInterceptor {
       // Search
       if (req.method === 'POST' && req.url.includes('search')) {
         return this.getMock('clients-search-response');
+      } else if (req.method === 'POST' && req.url.includes('user')) {
+        return this.getMock('user-search-response');
       }
     }
     return next.handle(req);

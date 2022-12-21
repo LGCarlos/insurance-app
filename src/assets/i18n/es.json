@@ -3,6 +3,9 @@
     "titles": {},
     "subtitles": {},
     "labels": {},
+    "alt": {
+      "logo": "Logo empresa"
+    },
     "buttons": {
       "search": "Buscar"
     },
