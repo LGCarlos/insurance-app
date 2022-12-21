@@ -1,10 +1,8 @@
 <p>home works!</p>
-<button
-  pButton
-  type="button"
-  label="Primary"
-  (click)="searchResultByPassport()"
-></button>
+<app-button
+  [label]="'common.buttons.search' | translate"
+  (onClick)="onSubmit()"
+></app-button>
 <form>
   <app-autocomplete-input
     [inputControlValue]="getFormControl('passport')"

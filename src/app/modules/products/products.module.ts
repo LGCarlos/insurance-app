@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ControlsModule } from 'src/app/controls/controls.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -17,6 +18,7 @@ import { ControlsModule } from 'src/app/controls/controls.module';
     FormsModule,
     ControlsModule,
     ReactiveFormsModule,
+    TranslateModule,
   ],
 })
 export class ProductsModule {}

@@ -51,4 +51,8 @@ export class HomeComponent implements OnInit {
   searchResultByPassport() {
     // TODO: Navigate to next window saving client's data
   }
+
+  onSubmit() {
+    // TODO: submit form
+  }
 }

@@ -3,7 +3,9 @@
     "titles": {},
     "subtitles": {},
     "labels": {},
-    "buttons": {},
+    "buttons": {
+      "search": "Buscar"
+    },
     "tableHeaders": {
       "firstName": "Nombre",
       "lastName": "Apellido",
