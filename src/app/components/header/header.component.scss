@@ -1,5 +1,4 @@
-// Variables
-$base-size: 3rem;
+@import "/src/assets/styles/variables";
 
 // Selectors
 .header {
@@ -9,7 +8,7 @@ $base-size: 3rem;
   align-items: center;
   .header__left {
     .logo {
-      width: $base-size;
+      width: $logo-mobile-size;
     }
   }
   .header__right {

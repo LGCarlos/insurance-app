@@ -1,14 +1,13 @@
-//Variables
-$base-size: 1.5rem;
-$option-size: 1rem;
+@import "/src/assets/styles/variables";
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
+  cursor: pointer;
   .lang__container {
-    width: $base-size;
-    height: $base-size;
+    width: $icons-mobile-size;
+    height: $icons-mobile-size;
   }
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
@@ -23,8 +22,8 @@ $option-size: 1rem;
       border-top: 0.5px solid var(--blue-300);
       cursor: pointer;
       .content__option {
-        width: $option-size;
-        height: $option-size;
+        width: $icons-dropdown-mobile-size;
+        height: $icons-dropdown-mobile-size;
       }
     }
     .content:first-child {
