@@ -1,0 +1,17 @@
+.card {
+  width: fit-content;
+  border-radius: 0.9rem;
+  box-shadow: 0 3px 4px #0000001a, 0 24px 36px #0000000a;
+  .card__top {
+    img {
+      width: 3rem;
+      margin-left: 1rem;
+    }
+  }
+  .card__bottom {
+    img {
+      border-radius: 0.9rem;
+      margin-bottom: -0.3rem;
+    }
+  }
+}

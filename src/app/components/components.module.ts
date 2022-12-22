@@ -5,10 +5,11 @@ import { ControlsModule } from '../controls/controls.module';
 import { HeaderComponent } from './header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [HeaderComponent, DropdownComponent],
+  declarations: [HeaderComponent, DropdownComponent, CardComponent],
   imports: [CommonModule, RouterModule, TranslateModule, ControlsModule],
-  exports: [HeaderComponent, DropdownComponent],
+  exports: [HeaderComponent, DropdownComponent, CardComponent],
 })
 export class ComponentsModule {}

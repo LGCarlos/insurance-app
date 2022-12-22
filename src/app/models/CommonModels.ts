@@ -87,3 +87,9 @@ export interface Langs {
   code: string;
   description: string;
 }
+
+// Insurance Card
+export interface InsuranceCard {
+  background: string;
+  type: string;
+}

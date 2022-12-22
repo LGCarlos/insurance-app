@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ClientModel } from 'src/app/models/CommonModels';
+import { ClientModel, InsuranceCard } from 'src/app/models/CommonModels';
 import { CommonService } from 'src/app/services/common.service';
+import { ConstantsService } from 'src/app/services/constants.service';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  insurances: any = ConstantsService.insurances;
   clients!: ClientModel[];
   passportsList: any = [];
   suggestions!: any[];

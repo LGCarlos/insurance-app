@@ -5,7 +5,8 @@
     "labels": {},
     "alt": {
       "logo": "Logo empresa",
-      "lang": "idioma"
+      "lang": "idioma",
+      "card": "Imagen decorativa"
     },
     "buttons": {
       "search": "Buscar"

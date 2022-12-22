@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Langs } from '../models/CommonModels';
+import { bufferToggle } from 'rxjs/operators';
+import { InsuranceCard, Langs } from '../models/CommonModels';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConstantsService {
   // Server Url API
-  public static ServerUrl = 'https://api.example.com/';
+  public static ServerUrl: string = 'https://api.example.com/';
 
   // Endpoints API
   public static Endpoints = {
@@ -20,10 +21,10 @@ export class ConstantsService {
   };
 
   // Mock Token
-  public static Token = 'ae45kgtiy986OHJUer';
+  public static Token: string = 'ae45kgtiy986OHJUer';
 
   // Images path
-  public static imagesPath = './../../../assets/images/';
+  public static imagesPath: string = './../../../assets/images/';
 
   // Languages
   public static langs: Langs[] = [
@@ -34,6 +35,26 @@ export class ConstantsService {
     {
       code: 'es',
       description: 'Español',
+    },
+  ];
+
+  // Insurance Types Cards
+  public static insurances: InsuranceCard[] = [
+    {
+      background: 'blue',
+      type: 'car',
+    },
+    {
+      background: 'green',
+      type: 'life',
+    },
+    {
+      background: 'yellow',
+      type: 'work',
+    },
+    {
+      background: 'purple',
+      type: 'home',
     },
   ];
 }
