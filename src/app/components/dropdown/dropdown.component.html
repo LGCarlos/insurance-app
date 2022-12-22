@@ -1,0 +1,25 @@
+<div class="dropdown">
+  <img
+    [src]="langIcon"
+    class="lang__container dropdown"
+    [alt]="'common.alt.lang' | translate"
+  />
+  <div class="dropdown-content">
+    <div class="lang" (click)="handleClick('en')">
+      <img
+        [src]="iconEn"
+        class="dropdown-content--option"
+        [alt]="'common.alt.lang' | translate"
+      />
+      {{ langEn }}
+    </div>
+    <div class="lang" (click)="handleClick('es')">
+      <img
+        [src]="iconEs"
+        class="dropdown-content--option"
+        [alt]="'common.alt.lang' | translate"
+      />
+      {{ langEs }}
+    </div>
+  </div>
+</div>

@@ -20,4 +20,13 @@ export class ConstantsService {
 
   // Mock Token
   public static Token = 'ae45kgtiy986OHJUer';
+
+  // Images path
+  public static imagesPath = './../../../assets/images/';
+
+  // Languages
+  public static langs = {
+    en: 'English',
+    es: 'Castellano',
+  };
 }

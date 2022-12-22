@@ -14,14 +14,9 @@ $base-size: 3rem;
   }
   .header__right {
     display: flex;
-    .header__right--lang {
-      display: flex;
-      .lang__container {
-        width: $base-size;
-        height: $base-size;
-        border-radius: 50%;
-        background-image: url("./../../../assets/images/en.png");
-      }
-    }
+    display: flex;
+    width: 6rem;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 }
