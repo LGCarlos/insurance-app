@@ -4,7 +4,8 @@
     "subtitles": {},
     "labels": {},
     "alt": {
-      "logo": "Logo empresa"
+      "logo": "Logo empresa",
+      "lang": "idioma"
     },
     "buttons": {
       "search": "Buscar"

@@ -8,7 +8,11 @@
   </div>
   <div class="header__right">
     <div class="header__right--lang">
-      <span class="lang__container"></span>
+      <img
+        [src]="langIcon"
+        class="lang__container"
+        [alt]="'common.alt.lang' | translate"
+      />
     </div>
     <div class="header__right--avatar">
       <app-avatar [label]="label | uppercase"></app-avatar>

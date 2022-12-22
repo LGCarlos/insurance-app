@@ -10,6 +10,7 @@ import { ConstantsService } from 'src/app/services/constants.service';
 export class HeaderComponent implements OnInit {
   user: string = '';
   label: string = '';
+  langIcon: string = './../../../assets/images/en.png';
   constructor(private userApiService: UserApiService) {}
 
   ngOnInit(): void {
