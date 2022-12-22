@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   user: string = '';
   label: string = '';
   langIcon: string = `${ConstantsService.imagesPath}en.png`;
+  logo: string = `${ConstantsService.imagesPath}logo.png`;
 
   constructor(
     private userApiService: UserApiService,

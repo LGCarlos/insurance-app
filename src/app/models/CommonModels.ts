@@ -81,3 +81,9 @@ export interface ClientsDataTable {
   lastServiceDate: string;
   debtor: string;
 }
+
+// Languages onject
+export interface Langs {
+  code: string;
+  description: string;
+}

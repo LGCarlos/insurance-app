@@ -5,21 +5,17 @@
     [alt]="'common.alt.lang' | translate"
   />
   <div class="dropdown-content">
-    <div class="lang" (click)="handleClick('en')">
+    <div
+      *ngFor="let lang of langs"
+      class="content"
+      (click)="handleClick(lang.code)"
+    >
       <img
-        [src]="iconEn"
-        class="dropdown-content--option"
+        [src]="getIconPath(lang.code)"
+        class="content__option"
         [alt]="'common.alt.lang' | translate"
       />
-      {{ langEn }}
-    </div>
-    <div class="lang" (click)="handleClick('es')">
-      <img
-        [src]="iconEs"
-        class="dropdown-content--option"
-        [alt]="'common.alt.lang' | translate"
-      />
-      {{ langEs }}
+      {{ lang.description }}
     </div>
   </div>
 </div>

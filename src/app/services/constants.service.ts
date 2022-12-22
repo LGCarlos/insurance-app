@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Langs } from '../models/CommonModels';
 
 @Injectable({
   providedIn: 'root',
@@ -25,8 +26,14 @@ export class ConstantsService {
   public static imagesPath = './../../../assets/images/';
 
   // Languages
-  public static langs = {
-    en: 'English',
-    es: 'Castellano',
-  };
+  public static langs: Langs[] = [
+    {
+      code: 'en',
+      description: 'English',
+    },
+    {
+      code: 'es',
+      description: 'Español',
+    },
+  ];
 }
