@@ -2,10 +2,12 @@
 
 // Selectors
 .header {
-  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid $base-color100;
+  box-shadow: 0 3px 4px #0000001a, 0 24px 36px #0000000a;
   .header__left {
     .logo {
       width: $logo-mobile-size;
