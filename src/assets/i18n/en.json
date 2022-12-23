@@ -3,7 +3,14 @@
     "titles": {},
     "subtitles": {},
     "labels": {},
-    "buttons": {},
+    "alt": {
+      "logo": "Company logo",
+      "lang": "language",
+      "card": "decorative image"
+    },
+    "buttons": {
+      "search": "Search"
+    },
     "tableHeaders": {
       "name": "First name",
       "surname": "Last name",

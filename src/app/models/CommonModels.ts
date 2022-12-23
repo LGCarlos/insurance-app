@@ -2,6 +2,16 @@
  * Data model for client's requests & responses from/to the service
  */
 
+// User search Request
+export interface UserSearchRequestModel {
+  token: string;
+}
+
+// User search Response
+export interface UserModel {
+  user: string;
+}
+
 //Search Request
 export interface ClientsSearchRequestModel {
   passport?: string;
@@ -70,4 +80,16 @@ export interface ClientsDataTable {
   firstServiceDate: string;
   lastServiceDate: string;
   debtor: string;
+}
+
+// Languages onject
+export interface Langs {
+  code: string;
+  description: string;
+}
+
+// Insurance Card
+export interface InsuranceCard {
+  background: string;
+  type: string;
 }

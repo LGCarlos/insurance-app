@@ -1,0 +1,16 @@
+<div class="header">
+  <div class="header__left">
+    <img [src]="logo" [alt]="'common.alt.logo' | translate" class="logo" />
+  </div>
+  <div class="header__right">
+    <div class="header__right--lang dropdown">
+      <app-dropdown
+        (onClick)="changeLanguage($event)"
+        [langIcon]="langIcon"
+      ></app-dropdown>
+    </div>
+    <div class="header__right--avatar">
+      <app-avatar [label]="label | uppercase"></app-avatar>
+    </div>
+  </div>
+</div>

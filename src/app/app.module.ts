@@ -10,6 +10,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentsModule } from './components/components.module';
+import { ControlsModule } from './controls/controls.module';
 import { ProductsModule } from './modules/products/products.module';
 import { Interceptor } from './services/interceptor';
 
@@ -29,6 +31,8 @@ import { Interceptor } from './services/interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     ProductsModule,
+    ControlsModule,
+    ComponentsModule,
   ],
   providers: [
     {

@@ -3,7 +3,14 @@
     "titles": {},
     "subtitles": {},
     "labels": {},
-    "buttons": {},
+    "alt": {
+      "logo": "Logo empresa",
+      "lang": "idioma",
+      "card": "Imagen decorativa"
+    },
+    "buttons": {
+      "search": "Buscar"
+    },
     "tableHeaders": {
       "firstName": "Nombre",
       "lastName": "Apellido",
