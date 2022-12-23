@@ -8,9 +8,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ControlsModule } from 'src/app/controls/controls.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ResultsComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
