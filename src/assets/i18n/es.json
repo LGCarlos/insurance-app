@@ -16,8 +16,7 @@
       "lastName": "Apellido",
       "passport": "Pasaporte",
       "firstServiceDate": "Fecha alta",
-      "lastServiceDate": "Fecha baja",
-      "debtor": "Deudor"
+      "lastServiceDate": "Fecha baja"
     }
   }
 }

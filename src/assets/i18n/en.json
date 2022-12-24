@@ -12,12 +12,11 @@
       "search": "Search"
     },
     "tableHeaders": {
-      "name": "First name",
-      "surname": "Last name",
+      "firstName": "Name",
+      "lastName": "Last name",
       "passport": "Passport",
-      "firstServiceDate": "Entry date",
-      "lastServiceDate": "Leaving date",
-      "debtor": "Debtor"
+      "firstServiceDate": "Start Date",
+      "lastServiceDate": "End Date"
     }
   }
 }

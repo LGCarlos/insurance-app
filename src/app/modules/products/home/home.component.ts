@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClientModel, InsuranceCard } from 'src/app/models/CommonModels';
 import { CommonService } from 'src/app/services/common.service';
 import { ConstantsService } from 'src/app/services/constants.service';
@@ -19,7 +20,11 @@ export class HomeComponent implements OnInit {
     passport: [''],
   });
 
-  constructor(private commonService: CommonService, private fb: FormBuilder) {}
+  constructor(
+    private commonService: CommonService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.commonService.getClients().subscribe((res) => {
@@ -56,5 +61,6 @@ export class HomeComponent implements OnInit {
 
   onSubmit() {
     // TODO: submit form
+    this.router.navigate([ConstantsService.UrlsComponents.Results]);
   }
 }
