@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LazyLoadEvent } from 'primeng/api';
 import {
@@ -6,13 +7,15 @@ import {
   ClientTableDataModel,
   GridHeaderModel,
 } from 'src/app/models/CommonModels';
+import { CommonService } from 'src/app/services/common.service';
+import { ConstantsService } from 'src/app/services/constants.service';
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss'],
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, OnDestroy {
   data: ClientTableDataModel[] = [];
   totalRecords: number = 0;
   headers: GridHeaderModel[] = [];
@@ -21,14 +24,28 @@ export class ResultsComponent implements OnInit {
   titlesTable!: any;
   page: number = 1;
 
-  constructor(private translateService: TranslateService) { }
+  constructor(
+    private translateService: TranslateService,
+    private commonService: CommonService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    // Redirect to home page if there is not client's results
+    this.commonService.clientsResults.length
+      ? null
+      : this.router.navigate([ConstantsService.UrlsComponents.Home]);
+
+    // Get translations
     this.getTranslations();
+
+    // Get titles table headers
     setTimeout(() => {
       this.setHeaders();
-    }, 300);
-    this.data = [];
+    }, 0);
+
+    //Get data displayed at table
+    this.data = [...this.commonService.clientsResults];
   }
 
   getTranslations() {
@@ -85,9 +102,17 @@ export class ResultsComponent implements OnInit {
       }
     }
   }
+
   searchClients() {
     this.loading = true;
 
     //TODO call , put loading false once is finished
+  }
+
+  goBack() {
+    this.router.navigate([ConstantsService.UrlsComponents.Home]);
+  }
+  ngOnDestroy() {
+    this.data = [];
   }
 }

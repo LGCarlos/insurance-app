@@ -47,7 +47,7 @@ export class ConstantsService {
     },
     {
       background: 'green',
-      type: 'life',
+      type: 'healthCare',
     },
     {
       background: 'yellow',

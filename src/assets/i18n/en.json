@@ -1,7 +1,10 @@
 {
   "common": {
     "titles": {},
-    "subtitles": {},
+    "subtitles": {
+      "findByInsurance": "Find by Insurance",
+      "findByPassport": "Find by Passport"
+    },
     "labels": {},
     "alt": {
       "logo": "Company logo",
@@ -9,7 +12,8 @@
       "card": "decorative image"
     },
     "buttons": {
-      "search": "Search"
+      "search": "Search",
+      "back": "Go back"
     },
     "tableHeaders": {
       "firstName": "Name",

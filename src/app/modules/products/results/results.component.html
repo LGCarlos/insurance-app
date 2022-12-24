@@ -1,4 +1,7 @@
-<p>results works!</p>
+<app-button
+  [label]="'common.buttons.back' | translate"
+  (onClick)="goBack()"
+></app-button>
 <app-table
   [data]="data"
   [totalRecords]="totalRecords"

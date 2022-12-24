@@ -17,11 +17,6 @@
         "startDate": "07/08/2022",
         "endDate": "26/08/2022"
       },
-      "life": {
-        "paymentUpToDate": true,
-        "startDate": "14/06/2020",
-        "endDate": "22/07/2021"
-      },
       "healthCare": {
         "paymentUpToDate": false,
         "startDate": "20/09/2022",
@@ -37,11 +32,6 @@
     "firstServiceDate": "04/11/2021",
     "lastServiceDate": "25/07/2022",
     "insurance": {
-      "home": {
-        "paymentUpToDate": true,
-        "startDate": "28/10/2019",
-        "endDate": "20/06/2021"
-      },
       "healthCare": {
         "paymentUpToDate": false,
         "startDate": "20/09/2022",
@@ -72,17 +62,12 @@
     "firstServiceDate": "23/09/2019",
     "lastServiceDate": "14/06/2022",
     "insurance": {
-      "home": {
-        "paymentUpToDate": true,
-        "startDate": "28/10/2019",
-        "endDate": "20/06/2021"
-      },
       "car": {
         "paymentUpToDate": false,
         "startDate": "07/08/2022",
         "endDate": "26/08/2022"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -112,7 +97,7 @@
         "startDate": "07/08/2022",
         "endDate": "26/08/2022"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -152,7 +137,7 @@
         "startDate": "07/08/2022",
         "endDate": "26/08/2022"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -181,17 +166,12 @@
     "firstServiceDate": "14/02/2022",
     "lastServiceDate": "23/07/2022",
     "insurance": {
-      "home": {
-        "paymentUpToDate": true,
-        "startDate": "28/10/2019",
-        "endDate": "20/06/2021"
-      },
       "car": {
         "paymentUpToDate": false,
         "startDate": "07/08/2022",
         "endDate": "26/08/2022"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -221,17 +201,12 @@
     "firstServiceDate": "06/07/2021",
     "lastServiceDate": "07/05/2021",
     "insurance": {
-      "home": {
-        "paymentUpToDate": true,
-        "startDate": "28/10/2019",
-        "endDate": "20/06/2021"
-      },
       "car": {
         "paymentUpToDate": false,
         "startDate": "07/08/2022",
         "endDate": "26/08/2022"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -260,17 +235,12 @@
     "firstServiceDate": "16/08/2021",
     "lastServiceDate": "29/08/2021",
     "insurance": {
-      "home": {
-        "paymentUpToDate": true,
-        "startDate": "28/10/2019",
-        "endDate": "20/06/2021"
-      },
       "car": {
         "paymentUpToDate": false,
         "startDate": "07/08/2022",
         "endDate": "26/08/2022"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -295,7 +265,7 @@
         "startDate": "28/10/2019",
         "endDate": "20/06/2021"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -324,7 +294,7 @@
     "firstServiceDate": "19/08/2022",
     "lastServiceDate": "24/02/2021",
     "insurance": {
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -344,7 +314,7 @@
         "startDate": "28/10/2019",
         "endDate": "20/06/2021"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"
@@ -369,7 +339,7 @@
         "startDate": "07/08/2022",
         "endDate": "26/08/2022"
       },
-      "life": {
+      "work": {
         "paymentUpToDate": true,
         "startDate": "14/06/2020",
         "endDate": "22/07/2021"

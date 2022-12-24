@@ -1,20 +1,23 @@
 <div class="insurance__search">
+  <h3>{{ "common.subtitles.findByInsurance" | translate }}</h3>
   <app-card
     *ngFor="let insurance of insurances"
     [backgroundImageColor]="insurance.background"
     [typeCard]="insurance.type"
+    (click)="searchBy(insurance.type)"
   ></app-card>
 </div>
-<div style="margin-top: 2rem">
-  <app-button
-    [label]="'common.buttons.search' | translate"
-    (onClick)="onSubmit()"
-  ></app-button>
-  <form>
+<div class="passport__search">
+  <h3>{{ "common.subtitles.findByPassport" | translate }}</h3>
+  <form class="search__form">
     <app-autocomplete-input
       [inputControlValue]="getFormControl('passport')"
       [suggestions]="suggestions"
       (selectedOption)="filterPassport($event)"
     ></app-autocomplete-input>
+    <app-button
+      [label]="'common.buttons.search' | translate"
+      (onClick)="onSubmit()"
+    ></app-button>
   </form>
 </div>
