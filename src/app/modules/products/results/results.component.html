@@ -1,1 +1,27 @@
-<p>results works!</p>
+<app-button
+  class="results__button"
+  [label]="'common.buttons.back' | translate"
+  (onClick)="goBack()"
+></app-button>
+<app-button
+  class="results__button"
+  [label]="'common.buttons.delete' | translate"
+  icon="pi pi-trash"
+  (onClick)="delete()"
+></app-button>
+<app-table
+  [data]="displayedData"
+  [totalRecords]="totalRecords"
+  [headers]="headers"
+  (onLazyLoad)="onLazyLoad($event)"
+  (onRowSelect)="onRowSelect($event)"
+  [loading]="loading"
+>
+</app-table>
+<app-confirm-dialog
+  [toggle]="showDialog.asObservable()"
+  [message]="getDialogMessage()"
+  [header]="getDialogHeader()"
+  (onConfirm)="confirmDelete()"
+>
+</app-confirm-dialog>

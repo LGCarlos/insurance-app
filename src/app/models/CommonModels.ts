@@ -12,6 +12,11 @@ export interface UserModel {
   user: string;
 }
 
+// User search Response
+export interface PassportModel {
+  name: string;
+}
+
 //Search Request
 export interface ClientsSearchRequestModel {
   passport?: string;
@@ -30,6 +35,15 @@ export interface ClientModel {
   firstServiceDate: string;
   lastServiceDate?: string;
   insurance: InsurancesTypesModel[];
+}
+
+export interface ClientTableDataModel {
+  clientId: number;
+  firstName: string;
+  lastName: string;
+  passport: string;
+  firstServiceDate: string;
+  lastServiceDate?: string;
 }
 
 export interface InsurancesTypesModel {
@@ -92,4 +106,11 @@ export interface Langs {
 export interface InsuranceCard {
   background: string;
   type: string;
+}
+
+// Table
+export interface GridHeaderModel {
+  headerText: string;
+  propertyName: string;
+  visible: boolean;
 }

@@ -18,6 +18,7 @@ export class ConstantsService {
   // Urls
   public static UrlsComponents = {
     Home: 'home',
+    Results: 'results',
   };
 
   // Mock Token
@@ -46,7 +47,7 @@ export class ConstantsService {
     },
     {
       background: 'green',
-      type: 'life',
+      type: 'healthCare',
     },
     {
       background: 'yellow',
@@ -57,4 +58,7 @@ export class ConstantsService {
       type: 'home',
     },
   ];
+
+  // Number of rows
+  public static TableRowsNumber: number = 10;
 }

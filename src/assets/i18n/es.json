@@ -1,7 +1,11 @@
 {
   "common": {
     "titles": {},
-    "subtitles": {},
+    "subtitles": {
+      "findByInsurance": "Búsqueda por seguro",
+      "findByPassport": "Búsqueda por pasaporte",
+      "findAll": "Buscar todos"
+    },
     "labels": {},
     "alt": {
       "logo": "Logo empresa",
@@ -9,15 +13,18 @@
       "card": "Imagen decorativa"
     },
     "buttons": {
-      "search": "Buscar"
+      "search": "Buscar",
+      "back": "Volver",
+      "delete": "Eliminar",
+      "confirm": "Confirmar",
+      "reject": "Cancelar"
     },
     "tableHeaders": {
       "firstName": "Nombre",
       "lastName": "Apellido",
       "passport": "Pasaporte",
       "firstServiceDate": "Fecha alta",
-      "lastServiceDate": "Fecha baja",
-      "debtor": "Deudor"
+      "lastServiceDate": "Fecha baja"
     }
   }
 }

@@ -1,7 +1,11 @@
 {
   "common": {
     "titles": {},
-    "subtitles": {},
+    "subtitles": {
+      "findByInsurance": "Find by Insurance",
+      "findByPassport": "Find by Passport",
+      "findAll": "Find all"
+    },
     "labels": {},
     "alt": {
       "logo": "Company logo",
@@ -9,15 +13,18 @@
       "card": "decorative image"
     },
     "buttons": {
-      "search": "Search"
+      "search": "Search",
+      "back": "Go back",
+      "delete": "Delete",
+      "confirm": "Confirm",
+      "reject": "Cancel"
     },
     "tableHeaders": {
-      "name": "First name",
-      "surname": "Last name",
+      "firstName": "Name",
+      "lastName": "Last name",
       "passport": "Passport",
-      "firstServiceDate": "Entry date",
-      "lastServiceDate": "Leaving date",
-      "debtor": "Debtor"
+      "firstServiceDate": "Start Date",
+      "lastServiceDate": "End Date"
     }
   }
 }
