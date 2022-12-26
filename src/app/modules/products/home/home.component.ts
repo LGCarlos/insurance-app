@@ -107,35 +107,20 @@ export class HomeComponent implements OnInit, OnDestroy {
   onSubmit(type: string) {
     switch (type) {
       case 'all':
-        this.clientsApiService.search({}).subscribe(
-          (res) => {
-            this.commonService.clientsResults = res;
-            this.router.navigate([ConstantsService.UrlsComponents.Results]);
-          },
-          (error) => {
-            //TODO: toast
-          }
-        );
+        this.commonService.clientsResults = [...this.clients];
         break;
       case 'passport':
-        this.clientsApiService
-          .search({ passport: this.form.value.passport })
-          .subscribe(
-            (res) => {
-              this.commonService.clientsResults = res;
-              this.router.navigate([ConstantsService.UrlsComponents.Results]);
-            },
-            (error) => {
-              //TODO: toast
-            }
-          );
+        this.commonService.clientsResults = this.clients.filter((client) =>
+          client.passport.includes(this.form.value.passport.name)
+        );
         break;
-
       default:
         break;
     }
-    // TODO: submit form
-    this.router.navigate([ConstantsService.UrlsComponents.Results]);
+    // Navigate to Results page only if there is/are results
+    this.commonService.clientsResults.length
+      ? this.router.navigate([ConstantsService.UrlsComponents.Results])
+      : undefined;
   }
 
   ngOnDestroy() {
