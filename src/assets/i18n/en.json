@@ -14,7 +14,10 @@
     },
     "buttons": {
       "search": "Search",
-      "back": "Go back"
+      "back": "Go back",
+      "delete": "Delete",
+      "confirm": "Confirm",
+      "reject": "Cancel"
     },
     "tableHeaders": {
       "firstName": "Name",

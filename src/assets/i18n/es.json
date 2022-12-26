@@ -3,7 +3,8 @@
     "titles": {},
     "subtitles": {
       "findByInsurance": "Búsqueda por seguro",
-      "findByPassport": "Búsqueda por pasaporte"
+      "findByPassport": "Búsqueda por pasaporte",
+      "findAll": "Buscar todos"
     },
     "labels": {},
     "alt": {
@@ -13,7 +14,10 @@
     },
     "buttons": {
       "search": "Buscar",
-      "back": "Volver"
+      "back": "Volver",
+      "delete": "Eliminar",
+      "confirm": "Confirmar",
+      "reject": "Cancelar"
     },
     "tableHeaders": {
       "firstName": "Nombre",

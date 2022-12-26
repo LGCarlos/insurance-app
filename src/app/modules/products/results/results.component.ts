@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LazyLoadEvent } from 'primeng/api';
+import { Subject } from 'rxjs';
 import {
   ClientModel,
   ClientTableDataModel,
@@ -27,6 +28,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   titlesTable!: any;
   perPage: number = 11;
+
+  showDialog: Subject<void> = new Subject<void>();
 
   constructor(
     private translateService: TranslateService,
@@ -120,6 +123,25 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   goBack() {
     this.router.navigate([ConstantsService.UrlsComponents.Home]);
+  }
+
+  delete() {
+    this.showDialog.next();
+  }
+
+  getDialogHeader() {
+    //TODO
+    return 'Delete?';
+  }
+
+  getDialogMessage() {
+    //TODO
+    return 'Are u sure?';
+  }
+
+  confirmDelete() {
+    //TODO
+    console.log('deleting...');
   }
 
   ngOnDestroy() {

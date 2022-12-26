@@ -12,6 +12,11 @@ export interface UserModel {
   user: string;
 }
 
+// User search Response
+export interface PassportModel {
+  name: string;
+}
+
 //Search Request
 export interface ClientsSearchRequestModel {
   passport?: string;

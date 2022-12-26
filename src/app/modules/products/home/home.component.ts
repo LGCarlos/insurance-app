@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import {
   ClientModel,
   ClientsSearchRequestModel,
+  PassportModel,
 } from 'src/app/models/CommonModels';
 import { ClientsApiService } from 'src/app/services/api/clients-api.service';
 import { CommonService } from 'src/app/services/common.service';
@@ -17,9 +18,9 @@ import { ConstantsService } from 'src/app/services/constants.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   insurances: any = ConstantsService.insurances;
-  clients!: ClientModel[];
-  passportsList: any = [];
-  suggestions!: any[];
+  clients: ClientModel[] = [];
+  passportsList: PassportModel[] = [];
+  suggestions: PassportModel[] = [];
   data!: Subscription;
 
   form = this.fb.group({
