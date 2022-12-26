@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import {
   ClientModel,
   ClientsSearchRequestModel,
@@ -104,7 +104,36 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSubmit() {
+  onSubmit(type: string) {
+    switch (type) {
+      case 'all':
+        this.clientsApiService.search({}).subscribe(
+          (res) => {
+            this.commonService.clientsResults = res;
+            this.router.navigate([ConstantsService.UrlsComponents.Results]);
+          },
+          (error) => {
+            //TODO: toast
+          }
+        );
+        break;
+      case 'passport':
+        this.clientsApiService
+          .search({ passport: this.form.value.passport })
+          .subscribe(
+            (res) => {
+              this.commonService.clientsResults = res;
+              this.router.navigate([ConstantsService.UrlsComponents.Results]);
+            },
+            (error) => {
+              //TODO: toast
+            }
+          );
+        break;
+
+      default:
+        break;
+    }
     // TODO: submit form
     this.router.navigate([ConstantsService.UrlsComponents.Results]);
   }

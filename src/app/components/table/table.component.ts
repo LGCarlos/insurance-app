@@ -36,14 +36,14 @@ export class TableComponent implements OnInit {
   //Number of records displayed simultaneously at the table
   rows = ConstantsService.TableRowsNumber;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   // Get visible columns names
   getTitles() {
     let arr = this.getVisibleHeaders().map(({ headerText }) => headerText);
-    return arr
+    return arr;
   }
 
   // get visible columns property names.
@@ -52,7 +52,7 @@ export class TableComponent implements OnInit {
   }
 
   getVisibleHeaders(): GridHeaderModel[] {
-    return this.headers.filter(item => item.visible);
+    return this.headers.filter((item) => item.visible);
   }
 
   onSelectionChange(value = null) {

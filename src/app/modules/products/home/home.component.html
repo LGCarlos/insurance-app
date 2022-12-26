@@ -1,23 +1,32 @@
-<div class="insurance__search">
-  <h3>{{ "common.subtitles.findByInsurance" | translate }}</h3>
-  <app-card
-    *ngFor="let insurance of insurances"
-    [backgroundImageColor]="insurance.background"
-    [typeCard]="insurance.type"
-    (click)="searchBy(insurance.type)"
-  ></app-card>
-</div>
-<div class="passport__search">
-  <h3>{{ "common.subtitles.findByPassport" | translate }}</h3>
-  <form class="search__form">
-    <app-autocomplete-input
-      [inputControlValue]="getFormControl('passport')"
-      [suggestions]="suggestions"
-      (selectedOption)="filterPassport($event)"
-    ></app-autocomplete-input>
+<div class="search">
+  <div class="search__all">
+    <h3>{{ "common.subtitles.findAll" | translate }}</h3>
     <app-button
       [label]="'common.buttons.search' | translate"
-      (onClick)="onSubmit()"
+      (onClick)="onSubmit('all')"
     ></app-button>
-  </form>
+  </div>
+  <div class="search__insurance">
+    <h3>{{ "common.subtitles.findByInsurance" | translate }}</h3>
+    <app-card
+      *ngFor="let insurance of insurances"
+      [backgroundImageColor]="insurance.background"
+      [typeCard]="insurance.type"
+      (click)="searchBy(insurance.type)"
+    ></app-card>
+  </div>
+  <div class="search__passport">
+    <h3>{{ "common.subtitles.findByPassport" | translate }}</h3>
+    <form class="search__form">
+      <app-autocomplete-input
+        [inputControlValue]="getFormControl('passport')"
+        [suggestions]="suggestions"
+        (selectedOption)="filterPassport($event)"
+      ></app-autocomplete-input>
+      <app-button
+        [label]="'common.buttons.search' | translate"
+        (onClick)="onSubmit('passport')"
+      ></app-button>
+    </form>
+  </div>
 </div>

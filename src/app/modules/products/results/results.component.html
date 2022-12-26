@@ -1,9 +1,10 @@
 <app-button
+  class="results__button"
   [label]="'common.buttons.back' | translate"
   (onClick)="goBack()"
 ></app-button>
 <app-table
-  [data]="data"
+  [data]="displayedData"
   [totalRecords]="totalRecords"
   [headers]="headers"
   (onLazyLoad)="onLazyLoad($event)"

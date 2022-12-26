@@ -16,13 +16,17 @@ import { ConstantsService } from 'src/app/services/constants.service';
   styleUrls: ['./results.component.scss'],
 })
 export class ResultsComponent implements OnInit, OnDestroy {
-  data: ClientTableDataModel[] = [];
-  totalRecords: number = 0;
+  data: ClientTableDataModel[] = this.commonService.clientsResults
+    ? this.commonService.clientsResults
+    : [];
+  displayedData: ClientTableDataModel[] = [];
+
+  totalRecords: number = 20;
   headers: GridHeaderModel[] = [];
   selectedRow: ClientModel | any;
   loading: boolean = false;
   titlesTable!: any;
-  page: number = 1;
+  perPage: number = 11;
 
   constructor(
     private translateService: TranslateService,
@@ -43,9 +47,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.setHeaders();
     }, 0);
-
     //Get data displayed at table
-    this.data = [...this.commonService.clientsResults];
+    this.displayedData = this.data.filter((item) => item.clientId < 11);
   }
 
   getTranslations() {
@@ -93,25 +96,32 @@ export class ResultsComponent implements OnInit, OnDestroy {
   }
 
   onLazyLoad(event: LazyLoadEvent): void {
-    if (event && event.first !== undefined && event.rows !== undefined) {
-      let page = event.first / event.rows + 1;
-      if (page !== this.page) {
-        this.page = page;
-        // Search data
-        this.searchClients();
+    if (event && event.rows !== undefined) {
+      let resultsPosition: number;
+      this.loading = true;
+      if (event.first !== 0 && event.first !== undefined) {
+        resultsPosition = event.first;
+        this.searchClients(resultsPosition);
+      } else if (event.first === 0) {
+        resultsPosition = event.first;
+        this.searchClients(resultsPosition);
       }
     }
   }
 
-  searchClients() {
-    this.loading = true;
-
-    //TODO call , put loading false once is finished
+  searchClients(resultsPosition: number) {
+    this.displayedData = this.data.filter(
+      (item) =>
+        item.clientId < resultsPosition + this.perPage &&
+        item.clientId > resultsPosition
+    );
+    this.loading = false;
   }
 
   goBack() {
     this.router.navigate([ConstantsService.UrlsComponents.Home]);
   }
+
   ngOnDestroy() {
     this.data = [];
   }

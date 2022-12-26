@@ -3,7 +3,8 @@
     "titles": {},
     "subtitles": {
       "findByInsurance": "Find by Insurance",
-      "findByPassport": "Find by Passport"
+      "findByPassport": "Find by Passport",
+      "findAll": "Find all"
     },
     "labels": {},
     "alt": {
