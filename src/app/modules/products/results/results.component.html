@@ -1,14 +1,17 @@
 <app-button
-  class="results__button"
   [label]="'common.buttons.back' | translate"
   (onClick)="goBack()"
 ></app-button>
-<app-button
-  class="results__button"
-  [label]="'common.buttons.delete' | translate"
-  icon="pi pi-trash"
-  (onClick)="delete()"
-></app-button>
+
+<div class="button__secondary">
+  <app-button
+    [label]="'common.buttons.delete' | translate"
+    icon="pi pi-trash"
+    [disabled]="!selected"
+    (onClick)="delete()"
+  ></app-button>
+</div>
+
 <app-table
   [data]="displayedData"
   [totalRecords]="totalRecords"

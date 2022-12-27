@@ -10,6 +10,7 @@ import {
 } from 'src/app/models/CommonModels';
 import { CommonService } from 'src/app/services/common.service';
 import { ConstantsService } from 'src/app/services/constants.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-results',
@@ -30,6 +31,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
   perPage: number = 11;
 
   showDialog: Subject<void> = new Subject<void>();
+
+  selected: boolean = false;
 
   constructor(
     private translateService: TranslateService,
@@ -91,11 +94,17 @@ export class ResultsComponent implements OnInit, OnDestroy {
     ];
   }
 
+  enableButtons(selectedRow: ClientTableDataModel) {
+    this.selected = !!selectedRow;
+  }
+
   onRowSelect(selectedRow: ClientTableDataModel) {
     // Find by id the original item associaated to selected row
     this.selectedRow = selectedRow
       ? this.data.find((item) => item.clientId === selectedRow.clientId)
       : undefined;
+    // Enable Button
+    this.enableButtons(selectedRow);
   }
 
   onLazyLoad(event: LazyLoadEvent): void {
@@ -129,6 +138,32 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.showDialog.next();
   }
 
+  confirmDelete() {
+    // Remove from table data
+    let indexTable = UtilsService.getIndexAtArray(
+      this.selectedRow,
+      this.displayedData
+    );
+    this.displayedData.splice(indexTable, 1);
+
+    // Remove from common service clientsResults
+    let indexCommonService = UtilsService.getIndexAtArray(
+      this.selectedRow,
+      this.commonService.primaryClientsResults
+    );
+    this.commonService.primaryClientsResults.splice(indexCommonService, 1);
+
+    // Remove from common service
+    let indexPassportList = UtilsService.getPassportIndexAtArray(
+      this.selectedRow.passport,
+      this.commonService.fullPassportsList
+    );
+    this.commonService.fullPassportsList.splice(indexPassportList, 1);
+
+    // Disable button
+    this.selected = false;
+  }
+
   getDialogHeader() {
     //TODO
     return 'Delete?';
@@ -137,11 +172,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
   getDialogMessage() {
     //TODO
     return 'Are u sure?';
-  }
-
-  confirmDelete() {
-    //TODO
-    console.log('deleting...');
   }
 
   ngOnDestroy() {

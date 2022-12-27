@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ClientModel } from '../models/CommonModels';
+import { ClientModel, PassportModel } from '../models/CommonModels';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommonService {
+  primaryClientsResults: ClientModel[] = [];
   clientsResults: ClientModel[] = [];
   clientsSearchFilters: string = '';
+  fullPassportsList: PassportModel[] = [];
 
   constructor() {}
 }

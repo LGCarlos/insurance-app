@@ -1,10 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import {
   ClientModel,
-  ClientsSearchRequestModel,
+  InsuranceCard,
   PassportModel,
 } from 'src/app/models/CommonModels';
 import { ClientsApiService } from 'src/app/services/api/clients-api.service';
@@ -16,12 +15,11 @@ import { ConstantsService } from 'src/app/services/constants.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  insurances: any = ConstantsService.insurances;
+export class HomeComponent implements OnInit {
+  insurances: InsuranceCard[] = ConstantsService.insurances;
   clients: ClientModel[] = [];
   passportsList: PassportModel[] = [];
   suggestions: PassportModel[] = [];
-  data!: Subscription;
 
   form = this.fb.group({
     passport: [''],
@@ -35,23 +33,30 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.data = this.clientsApiService.search({}).subscribe(
-      (res) => {
-        this.clients = res;
-        res.forEach((client) =>
-          this.passportsList.push(
-            (({ passport }) => ({ name: passport }))(client)
-          )
-        );
-      },
-      (error) => {
-        //TODO: toast
-      }
-    );
+    if (!this.commonService.primaryClientsResults.length) {
+      this.clientsApiService.search({}).subscribe(
+        (res) => {
+          this.clients = res;
+          res.forEach((client) =>
+            this.passportsList.push(
+              (({ passport }) => ({ name: passport }))(client)
+            )
+          );
+          this.commonService.fullPassportsList = [...this.passportsList];
+          this.commonService.primaryClientsResults = [...this.clients];
+        },
+        (error) => {
+          //TODO: toast
+        }
+      );
+    } else {
+      this.clients = [...this.commonService.primaryClientsResults];
+      this.passportsList = [...this.commonService.fullPassportsList];
+    }
   }
 
   filterPassport(event: any) {
-    //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+    // In a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
     let filtered: any[] = [];
     this.passportsList.forEach((passport: { name: string }) => {
       passport.name.toLowerCase().indexOf(event.toLowerCase()) === 0
@@ -68,36 +73,30 @@ export class HomeComponent implements OnInit, OnDestroy {
       : new FormControl();
   }
 
-  callClientsApi(body: ClientsSearchRequestModel, type: any) {
-    let results = [];
-    this.clientsApiService.search(body).subscribe(
-      (res) => {
-        results = res.filter((client) => client.insurance[type]);
-        this.commonService.clientsResults = results;
-        this.commonService.clientsSearchFilters = body.insurance
-          ? body.insurance
-          : '';
-        this.router.navigate([ConstantsService.UrlsComponents.Results]);
-      },
-      (error) => {
-        //TODO: toast
-      }
+  filterInsurance(type: any) {
+    // Filter array by insurance
+    this.commonService.clientsResults = this.clients.filter(
+      (client) => client.insurance[type]
     );
+    // Save search filters
+    this.commonService.clientsSearchFilters = type;
+    // Navigate to results page
+    this.router.navigate([ConstantsService.UrlsComponents.Results]);
   }
 
   searchBy(type: string) {
     switch (type) {
       case 'car':
-        this.callClientsApi({ insurance: type }, type);
+        this.filterInsurance(type);
         break;
       case 'healthCare':
-        this.callClientsApi({ insurance: type }, type);
+        this.filterInsurance(type);
         break;
       case 'work':
-        this.callClientsApi({ insurance: type }, type);
+        this.filterInsurance(type);
         break;
       case 'home':
-        this.callClientsApi({ insurance: type }, type);
+        this.filterInsurance(type);
         break;
 
       default:
@@ -122,9 +121,5 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.commonService.clientsResults.length
       ? this.router.navigate([ConstantsService.UrlsComponents.Results])
       : undefined;
-  }
-
-  ngOnDestroy() {
-    this.data.unsubscribe();
   }
 }
