@@ -1,7 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import "/src/assets/styles/variables";
 
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/**
+Buttons
+*/
+.button__secondary {
+  width: fit-content;
+  .p-button {
+    background: white;
+    color: $base-button-color;
+  }
+}
+
+.button__secondary:hover {
+  .p-button {
+    background-color: $base-button-color;
+    color: white;
+  }
 }
