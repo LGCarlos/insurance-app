@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ClientModel, PassportModel } from '../models/CommonModels';
 
 @Injectable({
@@ -9,6 +10,7 @@ export class CommonService {
   clientsResults: ClientModel[] = [];
   clientsSearchFilters: string = '';
   fullPassportsList: PassportModel[] = [];
+  dialogForm?: FormGroup;
 
   constructor() {}
 }

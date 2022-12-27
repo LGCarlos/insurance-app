@@ -9,8 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { CardComponent } from './card/card.component';
 import { TableComponent } from './table/table.component';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConfirmationService } from 'primeng/api';
+import { InputDialogComponent } from './input-dialog/input-dialog.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { ConfirmationService } from 'primeng/api';
     CardComponent,
     TableComponent,
     ConfirmDialogComponent,
+    InputDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,8 @@ import { ConfirmationService } from 'primeng/api';
     CardComponent,
     TableComponent,
     ConfirmDialogComponent,
+    InputDialogComponent,
   ],
-  providers: [ConfirmationService],
+  providers: [ConfirmationService, DialogService],
 })
 export class ComponentsModule {}
