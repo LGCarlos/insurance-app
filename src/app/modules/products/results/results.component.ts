@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -43,7 +44,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
     private commonService: CommonService,
     private dialogService: DialogService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private datepipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -185,8 +187,32 @@ export class ResultsComponent implements OnInit, OnDestroy {
     });
     this.openDialog('Hello world!').subscribe(
       (obj: { valid: boolean; form: any }) => {
-        console.log(obj);
-        // obj.valid ? 'updating...' : 'something went wrong';
+        if (obj.valid) {
+          let newArr;
+          let firstServiceDate =
+            this.commonService.dialogForm?.value.firstServiceDate &&
+            this.datepipe.transform(
+              this.commonService.dialogForm?.value.firstServiceDate,
+              'yyy-MM-dd'
+            );
+
+          newArr = this.commonService.primaryClientsResults.map((obj) => {
+            if (obj.clientId === this.selectedRow.clientId) {
+              return {
+                ...obj,
+                firstName: this.commonService.dialogForm?.value.firstName,
+                lastName: this.commonService.dialogForm?.value.lastName,
+                passport: this.commonService.dialogForm?.value.passport,
+                firstServiceDate,
+              };
+            }
+            return obj;
+          });
+          this.commonService.primaryClientsResults = newArr;
+          this.displayedData = this.commonService.primaryClientsResults.filter(
+            (item) => item.clientId < 11
+          );
+        }
       }
     );
   }
