@@ -1,1 +1,35 @@
-<p>input-dialog works!</p>
+<form>
+  <app-text-input
+    [title]="'common.inputs.firstName' | translate"
+    [inputControlValue]="getFormControl('firstName')"
+  ></app-text-input>
+  <app-text-input
+    [title]="'common.inputs.lastName' | translate"
+    [inputControlValue]="getFormControl('lastName')"
+  ></app-text-input>
+  <app-text-input
+    [title]="'common.inputs.passport' | translate"
+    [inputControlValue]="getFormControl('passport')"
+  ></app-text-input>
+  <app-checkbox-input
+    [categories]="categories"
+    [inputControlValue]="getFormControl('insurances')"
+  ></app-checkbox-input>
+</form>
+<div class="buttons_container">
+  <div class="button__secondary">
+    <app-button
+      [label]="'common.buttons.reject' | translate"
+      icon="pi pi-times"
+      (onClick)="onReject()"
+    ></app-button>
+  </div>
+  <div>
+    <app-button
+      [label]="'common.buttons.save' | translate"
+      icon="pi pi-check"
+      (onClick)="onConfirm()"
+      [disabled]="!form?.valid"
+    ></app-button>
+  </div>
+</div>

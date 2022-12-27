@@ -18,7 +18,8 @@
       "delete": "Eliminar",
       "update": "Modificar",
       "confirm": "Confirmar",
-      "reject": "Cancelar"
+      "reject": "Cancelar",
+      "save": "Guardar"
     },
     "tableHeaders": {
       "firstName": "Nombre",
@@ -26,6 +27,19 @@
       "passport": "Pasaporte",
       "firstServiceDate": "Fecha alta",
       "lastServiceDate": "Fecha baja"
+    },
+    "inputs": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "passport": "Pasaporte",
+      "firstServiceDate": "Fecha alta",
+      "lastServiceDate": "Fecha baja",
+      "insurances": [
+        { "name": "Coche", "key": "Coche" },
+        { "name": "Casa", "key": "Casa" },
+        { "name": "Salud", "key": "Salud" },
+        { "name": "Trabajo", "key": "Trabajo" }
+      ]
     }
   }
 }

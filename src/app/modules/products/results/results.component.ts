@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LazyLoadEvent } from 'primeng/api';
@@ -172,11 +172,15 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   update() {
     this.commonService.dialogForm = this.fb.group({
-      passport: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      passport: ['', Validators.required],
+      insurances: [''],
     });
     this.openDialog('Hello world!').subscribe(
       (obj: { valid: boolean; form: any }) => {
-        obj.form && obj.valid ? 'updating...' : 'something went wrong';
+        console.log(obj);
+        // obj.valid ? 'updating...' : 'something went wrong';
       }
     );
   }
@@ -185,7 +189,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     return new Observable((observer) => {
       this.ref = this.dialogService.open(InputDialogComponent, {
         header: title,
-        width: '60%',
+        width: 'auto',
         contentStyle: { 'min-height': '420px', overflow: 'auto' },
         baseZIndex: 998,
       });

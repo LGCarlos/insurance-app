@@ -24,3 +24,12 @@ Buttons
     color: white;
   }
 }
+
+.p-button {
+  min-width: 8rem;
+}
+
+.buttons_container {
+  display: flex;
+  justify-content: space-between;
+}
