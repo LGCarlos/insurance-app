@@ -11,6 +11,9 @@ import { ButtonComponent } from './button/button.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { TextInputComponent } from './text-input/text-input.component';
 import { CheckboxInputComponent } from './checkbox-input/checkbox-input.component';
+import { CalendarInputComponent } from './calendar-input/calendar-input.component';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { CheckboxInputComponent } from './checkbox-input/checkbox-input.componen
     AvatarComponent,
     TextInputComponent,
     CheckboxInputComponent,
+    CalendarInputComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +33,8 @@ import { CheckboxInputComponent } from './checkbox-input/checkbox-input.componen
     ButtonModule,
     AvatarModule,
     CheckboxModule,
+    CalendarModule,
+    InputTextModule,
   ],
   exports: [
     AutocompleteInputComponent,
@@ -36,6 +42,7 @@ import { CheckboxInputComponent } from './checkbox-input/checkbox-input.componen
     AvatarComponent,
     TextInputComponent,
     CheckboxInputComponent,
+    CalendarInputComponent,
   ],
 })
 export class ControlsModule {}

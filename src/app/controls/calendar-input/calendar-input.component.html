@@ -1,0 +1,15 @@
+<div class="input__container">
+  <label for="icon">
+    {{ title }}
+  </label>
+  <p-calendar
+    [showIcon]="true"
+    inputId="icon"
+    dateFormat="dd/mm/yy"
+    [formControl]="inputControlValue"
+    [minDate]="getMinValue()"
+    name="icon"
+    ngDefaultControl
+  >
+  </p-calendar>
+</div>

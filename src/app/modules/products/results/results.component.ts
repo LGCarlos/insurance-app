@@ -175,6 +175,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       passport: ['', Validators.required],
+      firstServiceDate: ['', Validators.required],
       insurances: [''],
     });
     this.openDialog('Hello world!').subscribe(

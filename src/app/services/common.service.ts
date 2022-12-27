@@ -11,6 +11,7 @@ export class CommonService {
   clientsSearchFilters: string = '';
   fullPassportsList: PassportModel[] = [];
   dialogForm?: FormGroup;
+  minDateValue: any = '';
 
   constructor() {}
 }
