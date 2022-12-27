@@ -35,10 +35,10 @@
       "firstServiceDate": "Fecha alta",
       "lastServiceDate": "Fecha baja",
       "insurances": [
-        { "name": "Coche", "key": "Coche" },
-        { "name": "Casa", "key": "Casa" },
-        { "name": "Salud", "key": "Salud" },
-        { "name": "Trabajo", "key": "Trabajo" }
+        { "name": "coche" },
+        { "name": "casa" },
+        { "name": "salud" },
+        { "name": "trabajo" }
       ]
     }
   }

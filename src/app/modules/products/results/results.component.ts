@@ -172,11 +172,16 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   update() {
     this.commonService.dialogForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      passport: ['', Validators.required],
-      firstServiceDate: ['', Validators.required],
-      insurances: [''],
+      firstName: [this.selectedRow.firstName, Validators.required],
+      lastName: [this.selectedRow.lastName, Validators.required],
+      passport: [this.selectedRow.passport, Validators.required],
+      firstServiceDate: [
+        new Date(this.selectedRow.firstServiceDate),
+        Validators.required,
+      ],
+      insurances: [
+        UtilsService.getCurrentCheckboxValues(this.selectedRow.insurance),
+      ],
     });
     this.openDialog('Hello world!').subscribe(
       (obj: { valid: boolean; form: any }) => {

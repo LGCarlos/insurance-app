@@ -118,5 +118,4 @@ export interface GridHeaderModel {
 // Checkbox options
 export interface CheckboxOptionsModel {
   name: string;
-  key: string;
 }

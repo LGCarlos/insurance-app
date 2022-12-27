@@ -35,10 +35,10 @@
       "firstServiceDate": "Start Date",
       "lastServiceDate": "End Date",
       "insurances": [
-        { "name": "Car", "key": "Car" },
-        { "name": "Home", "key": "Home" },
-        { "name": "Health Care", "key": "Health Care" },
-        { "name": "Work", "key": "Work" }
+        { "name": "car" },
+        { "name": "home" },
+        { "name": "health care" },
+        { "name": "work" }
       ]
     }
   }
