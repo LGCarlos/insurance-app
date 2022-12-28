@@ -172,6 +172,19 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.selected = false;
   }
 
+  setInsurances(form: any, startDate: string) {
+    let date = UtilsService.getEndDate(form.firstServiceDate);
+    let endDate = this.datepipe.transform(date, 'yyy-MM-dd');
+    let result: any = {};
+    form.insurances.forEach((insurance: any) => {
+      result[insurance.name] = {
+        paymentUpToDate: true,
+        startDate: startDate,
+        endDate: endDate,
+      };
+    });
+    return result;
+  }
   update() {
     this.commonService.dialogForm = this.fb.group({
       firstName: [this.selectedRow.firstName, Validators.required],
@@ -204,6 +217,10 @@ export class ResultsComponent implements OnInit, OnDestroy {
                 lastName: this.commonService.dialogForm?.value.lastName,
                 passport: this.commonService.dialogForm?.value.passport,
                 firstServiceDate,
+                insurance: this.setInsurances(
+                  this.commonService.dialogForm?.value,
+                  firstServiceDate
+                ),
               };
             }
             return obj;

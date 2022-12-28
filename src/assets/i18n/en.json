@@ -37,7 +37,7 @@
       "insurances": [
         { "name": "car" },
         { "name": "home" },
-        { "name": "health care" },
+        { "name": "healthCare" },
         { "name": "work" }
       ]
     }

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import {
   CheckboxOptionsModel,
@@ -47,5 +48,14 @@ export class UtilsService {
       result = [...result, obj];
     });
     return result;
+  }
+
+  //Return a date
+  public static getEndDate(date: any) {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    let endDate = new Date(year + 1, month, day);
+    return endDate;
   }
 }
