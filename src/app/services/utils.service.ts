@@ -58,4 +58,11 @@ export class UtilsService {
     let endDate = new Date(year + 1, month, day);
     return endDate;
   }
+
+  //Return id
+  public static getNewId(arr: ClientModel[]): number {
+    const length = arr.length;
+    const lastId = arr[length - 1].clientId;
+    return lastId + 1;
+  }
 }
