@@ -14,6 +14,7 @@ import {
 } from 'src/app/models/CommonModels';
 import { CommonService } from 'src/app/services/common.service';
 import { ConstantsService } from 'src/app/services/constants.service';
+import { ToastService } from 'src/app/services/toast.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
@@ -45,6 +46,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     private translateService: TranslateService,
     private commonService: CommonService,
     private dialogService: DialogService,
+    private toastService: ToastService,
     private router: Router,
     private fb: FormBuilder,
     private datepipe: DatePipe
@@ -182,6 +184,12 @@ export class ResultsComponent implements OnInit, OnDestroy {
       this.resultsPosition,
       this.resultsPosition + this.indexPerPage
     );
+    if (this.data.length === 0) {
+      this.router.navigate([ConstantsService.UrlsComponents.Home]);
+    }
+    // Trigger toast (success)
+    this.commonService.toastType = 'success';
+    this.toastService.showToast();
   }
 
   setInsurances(form: any, startDate: string) {
@@ -253,6 +261,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
           this.data = newArrClients;
           // Refresh table data
           this.searchClients();
+          // Trigger toast (success)
+          this.commonService.toastType = 'success';
+          this.toastService.showToast();
         }
       }
     );
@@ -301,6 +312,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
           this.totalRecords = this.data.length;
           // Refresh table data
           this.searchClients();
+          // Trigger toast (success)
+          this.commonService.toastType = 'success';
+          this.toastService.showToast();
         }
       }
     );

@@ -13,6 +13,8 @@ import { ConfirmationService } from 'primeng/api';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DialogService } from 'primeng/dynamicdialog';
+import { ToastModule } from 'primeng/toast';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { DialogService } from 'primeng/dynamicdialog';
     TableComponent,
     ConfirmDialogComponent,
     InputDialogComponent,
+    ToastComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +33,7 @@ import { DialogService } from 'primeng/dynamicdialog';
     ControlsModule,
     TableModule,
     ConfirmDialogModule,
+    ToastModule,
   ],
   exports: [
     HeaderComponent,
@@ -38,6 +42,7 @@ import { DialogService } from 'primeng/dynamicdialog';
     TableComponent,
     ConfirmDialogComponent,
     InputDialogComponent,
+    ToastComponent,
   ],
   providers: [ConfirmationService, DialogService],
 })

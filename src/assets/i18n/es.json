@@ -12,6 +12,13 @@
       "updateHeader": "Modificar",
       "createHeader": "Nuevo"
     },
+    "toast": {
+      "errorSummary": "Error",
+      "errorDetail": "No se ha podido completar la petición",
+      "successDetail": "Petición completada con éxito",
+      "warnSummary": "Aviso",
+      "warnNoResultsDetail": "No se ha encontrado ningún resultado"
+    },
     "alt": {
       "logo": "Logo empresa",
       "lang": "idioma",

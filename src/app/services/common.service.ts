@@ -6,12 +6,13 @@ import { ClientModel, PassportModel } from '../models/CommonModels';
   providedIn: 'root',
 })
 export class CommonService {
-  primaryClientsResults: ClientModel[] = [];
-  clientsResults: ClientModel[] = [];
-  clientsSearchFilters: string = '';
-  fullPassportsList: PassportModel[] = [];
-  dialogForm?: FormGroup;
-  minDateValue: any = '';
+  public primaryClientsResults: ClientModel[] = [];
+  public clientsResults: ClientModel[] = [];
+  public clientsSearchFilters: string = '';
+  public fullPassportsList: PassportModel[] = [];
+  public dialogForm?: FormGroup;
+  public minDateValue: any = '';
+  public toastType: '' | 'success' | 'error' | 'warn-noResults' = '';
 
   constructor() {}
 }
