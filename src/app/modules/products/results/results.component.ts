@@ -184,6 +184,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
       this.resultsPosition,
       this.resultsPosition + this.indexPerPage
     );
+    if (this.data.length === 0) {
+      this.router.navigate([ConstantsService.UrlsComponents.Home]);
+    }
     // Trigger toast (success)
     this.commonService.toastType = 'success';
     this.toastService.showToast();
