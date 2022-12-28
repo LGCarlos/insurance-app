@@ -25,14 +25,15 @@ export class ResultsComponent implements OnInit, OnDestroy {
   data: ClientTableDataModel[] = this.commonService.clientsResults
     ? this.commonService.clientsResults
     : [];
-  displayedData: ClientTableDataModel[] = [];
+  displayedData!: ClientTableDataModel[];
 
-  totalRecords: number = 20;
+  totalRecords!: number;
   headers: GridHeaderModel[] = [];
   selectedRow: ClientModel | any;
   loading: boolean = false;
   titlesTable!: any;
-  perPage: number = 11;
+  indexPerPage: number = 10;
+  resultsPosition: number = 0;
 
   showDialog: Subject<void> = new Subject<void>();
   ref?: DynamicDialogRef;
@@ -62,7 +63,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
       this.setHeaders();
     }, 0);
     //Get data displayed at table
-    this.displayedData = this.data.filter((item) => item.clientId < 11);
+    this.searchClients();
+    this.totalRecords = this.data.length;
   }
 
   getTranslations() {
@@ -117,23 +119,21 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   onLazyLoad(event: LazyLoadEvent): void {
     if (event && event.rows !== undefined) {
-      let resultsPosition: number;
       this.loading = true;
       if (event.first !== 0 && event.first !== undefined) {
-        resultsPosition = event.first;
-        this.searchClients(resultsPosition);
+        this.resultsPosition = event.first;
+        this.searchClients();
       } else if (event.first === 0) {
-        resultsPosition = event.first;
-        this.searchClients(resultsPosition);
+        this.resultsPosition = event.first;
+        this.searchClients();
       }
     }
   }
 
-  searchClients(resultsPosition: number) {
-    this.displayedData = this.data.filter(
-      (item) =>
-        item.clientId < resultsPosition + this.perPage &&
-        item.clientId > resultsPosition
+  searchClients() {
+    this.displayedData = this.data.slice(
+      this.resultsPosition,
+      this.resultsPosition + this.indexPerPage
     );
     this.loading = false;
   }
@@ -155,6 +155,11 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.displayedData.splice(indexTable, 1);
 
     // Remove from common service clientsResults
+    let indexData = UtilsService.getIndexAtArray(this.selectedRow, this.data);
+    this.data.splice(indexData, 1);
+    this.totalRecords = this.data.length;
+
+    // Remove from common service clientsResults
     let indexCommonService = UtilsService.getIndexAtArray(
       this.selectedRow,
       this.commonService.primaryClientsResults
@@ -170,6 +175,11 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
     // Disable button
     this.selected = false;
+    // Refresh table data
+    this.displayedData = this.data.slice(
+      this.resultsPosition,
+      this.resultsPosition + this.indexPerPage
+    );
   }
 
   setInsurances(form: any, startDate: string) {
@@ -185,6 +195,33 @@ export class ResultsComponent implements OnInit, OnDestroy {
     });
     return result;
   }
+
+  setNewArray(arr: ClientModel[]): ClientModel[] {
+    let firstServiceDate =
+      this.commonService.dialogForm?.value.firstServiceDate &&
+      this.datepipe.transform(
+        this.commonService.dialogForm?.value.firstServiceDate,
+        'yyy-MM-dd'
+      );
+    let newArr = arr.map((obj) => {
+      if (obj.clientId === this.selectedRow.clientId) {
+        return {
+          ...obj,
+          firstName: this.commonService.dialogForm?.value.firstName,
+          lastName: this.commonService.dialogForm?.value.lastName,
+          passport: this.commonService.dialogForm?.value.passport,
+          firstServiceDate,
+          insurance: this.setInsurances(
+            this.commonService.dialogForm?.value,
+            firstServiceDate
+          ),
+        };
+      }
+      return obj;
+    });
+    return newArr;
+  }
+
   update() {
     this.commonService.dialogForm = this.fb.group({
       firstName: [this.selectedRow.firstName, Validators.required],
@@ -201,33 +238,19 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.openDialog('Hello world!').subscribe(
       (obj: { valid: boolean; form: any }) => {
         if (obj.valid) {
-          let newArr;
-          let firstServiceDate =
-            this.commonService.dialogForm?.value.firstServiceDate &&
-            this.datepipe.transform(
-              this.commonService.dialogForm?.value.firstServiceDate,
-              'yyy-MM-dd'
-            );
-          newArr = this.commonService.primaryClientsResults.map((obj) => {
-            if (obj.clientId === this.selectedRow.clientId) {
-              return {
-                ...obj,
-                firstName: this.commonService.dialogForm?.value.firstName,
-                lastName: this.commonService.dialogForm?.value.lastName,
-                passport: this.commonService.dialogForm?.value.passport,
-                firstServiceDate,
-                insurance: this.setInsurances(
-                  this.commonService.dialogForm?.value,
-                  firstServiceDate
-                ),
-              };
-            }
-            return obj;
-          });
-          this.commonService.primaryClientsResults = newArr;
-          this.displayedData = this.commonService.primaryClientsResults.filter(
-            (item) => item.clientId < 11
+          // Update primary clients array results
+          let newArrPrimary = this.setNewArray(
+            this.commonService.primaryClientsResults
           );
+          // Update clients array results
+          let newArrClients = this.setNewArray(
+            this.commonService.clientsResults
+          );
+          // Update arrays
+          this.commonService.primaryClientsResults = newArrPrimary;
+          this.data = newArrClients;
+          // Refresh table data
+          this.searchClients();
         }
       }
     );
@@ -272,9 +295,10 @@ export class ResultsComponent implements OnInit, OnDestroy {
             ...this.commonService.primaryClientsResults,
             newClient,
           ];
-          this.displayedData = this.commonService.primaryClientsResults.filter(
-            (item) => item.clientId < 11
-          );
+          this.data = [...this.data, newClient];
+          this.totalRecords = this.data.length;
+          // Refresh table data
+          this.searchClients();
         }
       }
     );
