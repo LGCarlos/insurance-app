@@ -33,7 +33,7 @@ export interface ClientModel {
   lastName: string;
   passport: string;
   firstServiceDate: string;
-  lastServiceDate?: string;
+  lastServiceDate: string;
   insurance: InsurancesTypesModel[];
 }
 

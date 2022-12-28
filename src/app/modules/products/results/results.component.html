@@ -19,6 +19,13 @@
       (onClick)="update()"
     ></app-button>
   </div>
+  <div class="button__secondary">
+    <app-button
+      [label]="'common.buttons.add' | translate"
+      icon="pi pi-user-plus"
+      (onClick)="create()"
+    ></app-button>
+  </div>
 </div>
 
 <app-table

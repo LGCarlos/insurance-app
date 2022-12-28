@@ -208,7 +208,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
               this.commonService.dialogForm?.value.firstServiceDate,
               'yyy-MM-dd'
             );
-
           newArr = this.commonService.primaryClientsResults.map((obj) => {
             if (obj.clientId === this.selectedRow.clientId) {
               return {
@@ -226,6 +225,53 @@ export class ResultsComponent implements OnInit, OnDestroy {
             return obj;
           });
           this.commonService.primaryClientsResults = newArr;
+          this.displayedData = this.commonService.primaryClientsResults.filter(
+            (item) => item.clientId < 11
+          );
+        }
+      }
+    );
+  }
+
+  create() {
+    this.commonService.dialogForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      passport: ['', Validators.required],
+      firstServiceDate: ['', Validators.required],
+      insurances: [],
+    });
+    this.openDialog('Hello world!').subscribe(
+      (obj: { valid: boolean; form: any }) => {
+        if (obj.valid) {
+          let firstServiceDate =
+            this.commonService.dialogForm?.value.firstServiceDate &&
+            this.datepipe.transform(
+              this.commonService.dialogForm?.value.firstServiceDate,
+              'yyy-MM-dd'
+            );
+          let date = UtilsService.getEndDate(
+            this.commonService.dialogForm?.value.firstServiceDate
+          );
+          let lastServiceDate = this.datepipe.transform(date, 'yyy-MM-dd');
+          let newClient = {
+            clientId: UtilsService.getNewId(
+              this.commonService.primaryClientsResults
+            ),
+            firstName: this.commonService.dialogForm?.value.firstName,
+            lastName: this.commonService.dialogForm?.value.lastName,
+            passport: this.commonService.dialogForm?.value.passport,
+            firstServiceDate,
+            lastServiceDate: lastServiceDate ? lastServiceDate : '',
+            insurance: this.setInsurances(
+              this.commonService.dialogForm?.value,
+              firstServiceDate
+            ),
+          };
+          this.commonService.primaryClientsResults = [
+            ...this.commonService.primaryClientsResults,
+            newClient,
+          ];
           this.displayedData = this.commonService.primaryClientsResults.filter(
             (item) => item.clientId < 11
           );
