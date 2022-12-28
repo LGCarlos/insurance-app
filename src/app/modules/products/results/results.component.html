@@ -39,8 +39,8 @@
 </app-table>
 <app-confirm-dialog
   [toggle]="showDialog.asObservable()"
-  [message]="getDialogMessage()"
-  [header]="getDialogHeader()"
+  [message]="'common.dialogs.deleteMessage' | translate"
+  [header]="'common.dialogs.deleteHeader' | translate"
   (onConfirm)="confirmDelete()"
 >
 </app-confirm-dialog>

@@ -37,6 +37,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   showDialog: Subject<void> = new Subject<void>();
   ref?: DynamicDialogRef;
+  dialogs: any;
 
   selected: boolean = false;
 
@@ -70,6 +71,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   getTranslations() {
     this.translateService.get('common').subscribe((res: any) => {
       this.titlesTable = res.tableHeaders;
+      this.dialogs = res.dialogs;
     });
   }
 
@@ -235,7 +237,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
         UtilsService.getCurrentCheckboxValues(this.selectedRow.insurance),
       ],
     });
-    this.openDialog('Hello world!').subscribe(
+    this.openDialog(this.dialogs.updateHeader).subscribe(
       (obj: { valid: boolean; form: any }) => {
         if (obj.valid) {
           // Update primary clients array results
@@ -264,7 +266,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
       firstServiceDate: ['', Validators.required],
       insurances: [],
     });
-    this.openDialog('Hello world!').subscribe(
+    this.openDialog(this.dialogs.createHeader).subscribe(
       (obj: { valid: boolean; form: any }) => {
         if (obj.valid) {
           let firstServiceDate =
@@ -316,16 +318,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
         form ? observer.next({ valid: true, form }) : null;
       });
     });
-  }
-
-  getDialogHeader() {
-    //TODO
-    return 'Delete?';
-  }
-
-  getDialogMessage() {
-    //TODO
-    return 'Are u sure?';
   }
 
   ngOnDestroy() {

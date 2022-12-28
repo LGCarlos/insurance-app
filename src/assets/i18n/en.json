@@ -6,7 +6,12 @@
       "findByPassport": "Find by Passport",
       "findAll": "Find all"
     },
-    "labels": {},
+    "dialogs": {
+      "deleteHeader": "Delete",
+      "deleteMessage": "Are you sure you want to delete the record?",
+      "updateHeader": "Update",
+      "createHeader": "New"
+    },
     "alt": {
       "logo": "Company logo",
       "lang": "language",
