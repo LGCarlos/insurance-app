@@ -9,6 +9,7 @@ import {
 import { ClientsApiService } from 'src/app/services/api/clients-api.service';
 import { CommonService } from 'src/app/services/common.service';
 import { ConstantsService } from 'src/app/services/constants.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private commonService: CommonService,
     private clientsApiService: ClientsApiService,
+    private toastService: ToastService,
     private fb: FormBuilder,
     private router: Router
   ) {}
@@ -46,7 +48,9 @@ export class HomeComponent implements OnInit {
           this.commonService.primaryClientsResults = [...this.clients];
         },
         (error) => {
-          //TODO: toast
+          // Trigger toast (error)
+          this.commonService.toastType = 'error';
+          this.toastService.showToast();
         }
       );
     } else {
@@ -108,11 +112,21 @@ export class HomeComponent implements OnInit {
     switch (type) {
       case 'all':
         this.commonService.clientsResults = [...this.clients];
+        if (!this.clients.length) {
+          // Trigger toast (no results)
+          this.commonService.toastType = 'warn-noResults';
+          this.toastService.showToast();
+        }
         break;
       case 'passport':
         this.commonService.clientsResults = this.clients.filter((client) =>
           client.passport.includes(this.form.value.passport.name)
         );
+        if (!this.commonService.clientsResults.length) {
+          // Trigger toast (no results)
+          this.commonService.toastType = 'warn-noResults';
+          this.toastService.showToast();
+        }
         break;
       default:
         break;
