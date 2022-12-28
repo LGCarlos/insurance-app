@@ -6,7 +6,12 @@
       "findByPassport": "Búsqueda por pasaporte",
       "findAll": "Buscar todos"
     },
-    "labels": {},
+    "dialogs": {
+      "deleteHeader": "Eliminar",
+      "deleteMessage": "¿Estás seguro que quieres eliminar el registro?",
+      "updateHeader": "Modificar",
+      "createHeader": "Nuevo"
+    },
     "alt": {
       "logo": "Logo empresa",
       "lang": "idioma",
