@@ -1,0 +1,8 @@
+<div *ngFor="let category of categories" class="field-checkbox">
+  <p-checkbox
+    value="category"
+    [value]="category"
+    [formControl]="inputControlValue"
+  ></p-checkbox>
+  <label [for]="category">{{ category.name }}</label>
+</div>

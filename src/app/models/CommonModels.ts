@@ -114,3 +114,8 @@ export interface GridHeaderModel {
   propertyName: string;
   visible: boolean;
 }
+
+// Checkbox options
+export interface CheckboxOptionsModel {
+  name: string;
+}

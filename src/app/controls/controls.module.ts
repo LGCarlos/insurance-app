@@ -6,11 +6,24 @@ import { AutocompleteInputComponent } from './autocomplete-input/autocomplete-in
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonComponent } from './button/button.component';
 import { AvatarComponent } from './avatar/avatar.component';
+import { TextInputComponent } from './text-input/text-input.component';
+import { CheckboxInputComponent } from './checkbox-input/checkbox-input.component';
+import { CalendarInputComponent } from './calendar-input/calendar-input.component';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
-  declarations: [AutocompleteInputComponent, ButtonComponent, AvatarComponent],
+  declarations: [
+    AutocompleteInputComponent,
+    ButtonComponent,
+    AvatarComponent,
+    TextInputComponent,
+    CheckboxInputComponent,
+    CalendarInputComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,7 +32,17 @@ import { AvatarComponent } from './avatar/avatar.component';
     AutoCompleteModule,
     ButtonModule,
     AvatarModule,
+    CheckboxModule,
+    CalendarModule,
+    InputTextModule,
   ],
-  exports: [AutocompleteInputComponent, ButtonComponent, AvatarComponent],
+  exports: [
+    AutocompleteInputComponent,
+    ButtonComponent,
+    AvatarComponent,
+    TextInputComponent,
+    CheckboxInputComponent,
+    CalendarInputComponent,
+  ],
 })
 export class ControlsModule {}

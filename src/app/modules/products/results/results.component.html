@@ -2,14 +2,23 @@
   [label]="'common.buttons.back' | translate"
   (onClick)="goBack()"
 ></app-button>
-
-<div class="button__secondary">
-  <app-button
-    [label]="'common.buttons.delete' | translate"
-    icon="pi pi-trash"
-    [disabled]="!selected"
-    (onClick)="delete()"
-  ></app-button>
+<div>
+  <div class="button__secondary">
+    <app-button
+      [label]="'common.buttons.delete' | translate"
+      icon="pi pi-trash"
+      [disabled]="!selected"
+      (onClick)="delete()"
+    ></app-button>
+  </div>
+  <div class="button__secondary">
+    <app-button
+      [label]="'common.buttons.update' | translate"
+      icon="pi pi-user-edit"
+      [disabled]="!selected"
+      (onClick)="update()"
+    ></app-button>
+  </div>
 </div>
 
 <app-table

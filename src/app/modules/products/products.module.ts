@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ButtonModule } from 'primeng/button';
@@ -23,5 +23,6 @@ import { ResultsComponent } from './results/results.component';
     TranslateModule,
     ComponentsModule,
   ],
+  providers: [DatePipe],
 })
 export class ProductsModule {}

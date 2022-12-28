@@ -16,8 +16,10 @@
       "search": "Search",
       "back": "Go back",
       "delete": "Delete",
+      "update": "Update",
       "confirm": "Confirm",
-      "reject": "Cancel"
+      "reject": "Cancel",
+      "save": "Save"
     },
     "tableHeaders": {
       "firstName": "Name",
@@ -25,6 +27,19 @@
       "passport": "Passport",
       "firstServiceDate": "Start Date",
       "lastServiceDate": "End Date"
+    },
+    "inputs": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "passport": "Passport",
+      "firstServiceDate": "Start Date",
+      "lastServiceDate": "End Date",
+      "insurances": [
+        { "name": "car" },
+        { "name": "home" },
+        { "name": "healthCare" },
+        { "name": "work" }
+      ]
     }
   }
 }

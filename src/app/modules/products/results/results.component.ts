@@ -1,8 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LazyLoadEvent } from 'primeng/api';
-import { Subject } from 'rxjs';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Observable, Subject } from 'rxjs';
+import { InputDialogComponent } from 'src/app/components/input-dialog/input-dialog.component';
 import {
   ClientModel,
   ClientTableDataModel,
@@ -31,13 +35,17 @@ export class ResultsComponent implements OnInit, OnDestroy {
   perPage: number = 11;
 
   showDialog: Subject<void> = new Subject<void>();
+  ref?: DynamicDialogRef;
 
   selected: boolean = false;
 
   constructor(
     private translateService: TranslateService,
     private commonService: CommonService,
-    private router: Router
+    private dialogService: DialogService,
+    private router: Router,
+    private fb: FormBuilder,
+    private datepipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -162,6 +170,82 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
     // Disable button
     this.selected = false;
+  }
+
+  setInsurances(form: any, startDate: string) {
+    let date = UtilsService.getEndDate(form.firstServiceDate);
+    let endDate = this.datepipe.transform(date, 'yyy-MM-dd');
+    let result: any = {};
+    form.insurances.forEach((insurance: any) => {
+      result[insurance.name] = {
+        paymentUpToDate: true,
+        startDate: startDate,
+        endDate: endDate,
+      };
+    });
+    return result;
+  }
+  update() {
+    this.commonService.dialogForm = this.fb.group({
+      firstName: [this.selectedRow.firstName, Validators.required],
+      lastName: [this.selectedRow.lastName, Validators.required],
+      passport: [this.selectedRow.passport, Validators.required],
+      firstServiceDate: [
+        new Date(this.selectedRow.firstServiceDate),
+        Validators.required,
+      ],
+      insurances: [
+        UtilsService.getCurrentCheckboxValues(this.selectedRow.insurance),
+      ],
+    });
+    this.openDialog('Hello world!').subscribe(
+      (obj: { valid: boolean; form: any }) => {
+        if (obj.valid) {
+          let newArr;
+          let firstServiceDate =
+            this.commonService.dialogForm?.value.firstServiceDate &&
+            this.datepipe.transform(
+              this.commonService.dialogForm?.value.firstServiceDate,
+              'yyy-MM-dd'
+            );
+
+          newArr = this.commonService.primaryClientsResults.map((obj) => {
+            if (obj.clientId === this.selectedRow.clientId) {
+              return {
+                ...obj,
+                firstName: this.commonService.dialogForm?.value.firstName,
+                lastName: this.commonService.dialogForm?.value.lastName,
+                passport: this.commonService.dialogForm?.value.passport,
+                firstServiceDate,
+                insurance: this.setInsurances(
+                  this.commonService.dialogForm?.value,
+                  firstServiceDate
+                ),
+              };
+            }
+            return obj;
+          });
+          this.commonService.primaryClientsResults = newArr;
+          this.displayedData = this.commonService.primaryClientsResults.filter(
+            (item) => item.clientId < 11
+          );
+        }
+      }
+    );
+  }
+
+  openDialog(title: string): Observable<any> {
+    return new Observable((observer) => {
+      this.ref = this.dialogService.open(InputDialogComponent, {
+        header: title,
+        width: 'auto',
+        contentStyle: { 'min-height': '420px', overflow: 'auto' },
+        baseZIndex: 998,
+      });
+      this.ref.onClose.subscribe((form: any) => {
+        form ? observer.next({ valid: true, form }) : null;
+      });
+    });
   }
 
   getDialogHeader() {
