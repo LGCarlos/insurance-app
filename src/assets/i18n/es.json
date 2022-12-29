@@ -1,11 +1,15 @@
 {
   "common": {
-    "titles": {},
+    "titles": {
+      "home": "Inicio",
+      "statistsics": "Estadísticas"
+    },
     "subtitles": {
       "findByInsurance": "Búsqueda por seguro",
       "findByPassport": "Búsqueda por pasaporte",
       "findAll": "Buscar todos"
     },
+    "labels": ["Coche", "Salud", "Trabajo", "Casa"],
     "dialogs": {
       "deleteHeader": "Eliminar",
       "deleteMessage": "¿Estás seguro que quieres eliminar el registro?",

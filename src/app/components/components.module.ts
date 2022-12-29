@@ -14,7 +14,9 @@ import { InputDialogComponent } from './input-dialog/input-dialog.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
+import { ChartModule } from 'primeng/chart';
 import { ToastComponent } from './toast/toast.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { ToastComponent } from './toast/toast.component';
     ConfirmDialogComponent,
     InputDialogComponent,
     ToastComponent,
+    ChartComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +37,7 @@ import { ToastComponent } from './toast/toast.component';
     TableModule,
     ConfirmDialogModule,
     ToastModule,
+    ChartModule,
   ],
   exports: [
     HeaderComponent,
@@ -43,6 +47,7 @@ import { ToastComponent } from './toast/toast.component';
     ConfirmDialogComponent,
     InputDialogComponent,
     ToastComponent,
+    ChartComponent,
   ],
   providers: [ConfirmationService, DialogService],
 })

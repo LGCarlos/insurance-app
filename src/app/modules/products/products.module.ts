@@ -9,9 +9,10 @@ import { ControlsModule } from 'src/app/controls/controls.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { ResultsComponent } from './results/results.component';
+import { StatistsicsComponent } from './statistsics/statistsics.component';
 
 @NgModule({
-  declarations: [HomeComponent, ResultsComponent],
+  declarations: [HomeComponent, ResultsComponent, StatistsicsComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
