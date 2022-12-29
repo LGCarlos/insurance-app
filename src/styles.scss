@@ -16,6 +16,14 @@ Header
   z-index: 9999;
   background-color: white;
 }
+
+/**
+Wrapper container page
+*/
+.wrapper {
+  padding: 2rem 1rem;
+}
+
 /**
 Buttons
 */
@@ -35,7 +43,21 @@ Buttons
 }
 
 .p-button {
-  min-width: 8rem;
+  min-width: 9rem;
+}
+.container__button--results {
+  display: flex;
+  margin: 3rem 4rem 0rem 4rem;
+  justify-content: space-around;
+  .p-button {
+    min-width: 3rem;
+    .p-button-icon-left {
+      margin-right: 0 !important;
+    }
+    .p-button-label {
+      display: none;
+    }
+  }
 }
 
 .buttons_container {
@@ -62,4 +84,22 @@ Headers
 */
 h3 {
   color: $base-color500;
+}
+
+/**
+Media.queries
+*/
+
+@media (min-width: $breakpoint-computer) {
+  .container__button--results {
+    .p-button {
+      min-width: 9rem;
+      .p-button-icon-left {
+        margin-right: 0.5;
+      }
+      .p-button-label {
+        display: block;
+      }
+    }
+  }
 }

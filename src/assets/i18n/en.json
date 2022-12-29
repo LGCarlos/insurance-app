@@ -7,7 +7,8 @@
     "subtitles": {
       "findByInsurance": "Find by Insurance",
       "findByPassport": "Find by Passport",
-      "findAll": "Find all"
+      "findAll": "Find all",
+      "totalRecords": "Total Records"
     },
     "labels": ["Car", "HealthCare", "Work", "Home"],
     "dialogs": {
