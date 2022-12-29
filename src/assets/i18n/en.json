@@ -1,11 +1,15 @@
 {
   "common": {
-    "titles": {},
+    "titles": {
+      "home": "Home",
+      "statistsics": "Statistsics"
+    },
     "subtitles": {
       "findByInsurance": "Find by Insurance",
       "findByPassport": "Find by Passport",
       "findAll": "Find all"
     },
+    "labels": ["Car", "HealthCare", "Work", "Home"],
     "dialogs": {
       "deleteHeader": "Delete",
       "deleteMessage": "Are you sure you want to delete the record?",

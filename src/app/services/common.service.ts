@@ -13,6 +13,7 @@ export class CommonService {
   public dialogForm?: FormGroup;
   public minDateValue: any = '';
   public toastType: '' | 'success' | 'error' | 'warn-noResults' = '';
+  public labelsChart: string[] = [];
 
   constructor() {}
 }

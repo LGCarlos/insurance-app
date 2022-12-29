@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { UserApiService } from 'src/app/services/api/user-api.service';
 import { CommonService } from 'src/app/services/common.service';
@@ -14,13 +15,17 @@ export class HeaderComponent implements OnInit {
   label: string = '';
   langIcon: string = `${ConstantsService.imagesPath}en.png`;
   logo: string = `${ConstantsService.imagesPath}logo.svg`;
+  urls: any;
 
   constructor(
     private userApiService: UserApiService,
-    private translate: TranslateService
+    private translateService: TranslateService,
+    private router: Router,
+    private commonService: CommonService
   ) {}
 
   ngOnInit(): void {
+    this.urls = ConstantsService.UrlsComponents;
     this.userApiService.search({ token: ConstantsService.Token }).subscribe(
       (res) => {
         this.user = res.user;
@@ -33,7 +38,12 @@ export class HeaderComponent implements OnInit {
     );
   }
   changeLanguage(lang: string) {
-    this.translate.use(lang);
+    this.translateService.use(lang);
     this.langIcon = `${ConstantsService.imagesPath}${lang}.png`;
+  }
+  goToStatistics() {
+    this.translateService.get('common.labels').subscribe((res: string[]) => {
+      this.commonService.labelsChart = res;
+    });
   }
 }

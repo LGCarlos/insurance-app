@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { bufferToggle } from 'rxjs/operators';
 import { InsuranceCard, Langs } from '../models/CommonModels';
 
 @Injectable({
@@ -19,13 +18,14 @@ export class ConstantsService {
   public static UrlsComponents = {
     Home: 'home',
     Results: 'results',
+    Statistsics: 'statistics',
   };
 
   // Mock Token
   public static Token: string = 'ae45kgtiy986OHJUer';
 
   // Images path
-  public static imagesPath: string = './../../../assets/images/';
+  public static imagesPath: string = '/assets/images/';
 
   // Languages
   public static langs: Langs[] = [
@@ -61,4 +61,7 @@ export class ConstantsService {
 
   // Number of rows
   public static TableRowsNumber: number = 10;
+
+  // Title 'insurance'
+  public static insuranceString: string = 'insurance';
 }

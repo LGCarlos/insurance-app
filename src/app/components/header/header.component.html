@@ -2,6 +2,14 @@
   <div class="header__left">
     <img [src]="logo" [alt]="'common.alt.logo' | translate" class="logo" />
   </div>
+  <nav>
+    <a [routerLink]="[urls.Home]">
+      {{ "common.titles.home" | translate }}
+    </a>
+    <a [routerLink]="[urls.Statistsics]" (click)="goToStatistics()">
+      {{ "common.titles.statistsics" | translate }}
+    </a>
+  </nav>
   <div class="header__right">
     <div class="header__right--lang dropdown">
       <app-dropdown
