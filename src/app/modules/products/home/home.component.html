@@ -1,13 +1,19 @@
 <div class="search">
   <div class="search__all">
-    <h3>{{ "common.subtitles.findAll" | translate }}</h3>
+    <div class="search__title">
+      <h3>{{ "common.subtitles.findAll" | translate }}</h3>
+      <i class="pi pi-users"></i>
+    </div>
     <app-button
       [label]="'common.buttons.search' | translate"
       (onClick)="onSubmit('all')"
     ></app-button>
   </div>
   <div class="search__insurance">
-    <h3>{{ "common.subtitles.findByInsurance" | translate }}</h3>
+    <div class="search__title longLabel">
+      <h3>{{ "common.subtitles.findByInsurance" | translate }}</h3>
+      <i class="pi pi-shield"></i>
+    </div>
     <app-card
       *ngFor="let insurance of insurances"
       [backgroundImageColor]="insurance.background"
@@ -16,7 +22,10 @@
     ></app-card>
   </div>
   <div class="search__passport">
-    <h3>{{ "common.subtitles.findByPassport" | translate }}</h3>
+    <div class="search__title longLabel">
+      <h3>{{ "common.subtitles.findByPassport" | translate }}</h3>
+      <i class="pi pi-id-card"></i>
+    </div>
     <form class="search__form">
       <app-autocomplete-input
         [inputControlValue]="getFormControl('passport')"

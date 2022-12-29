@@ -1,18 +1,23 @@
-.search__insurance {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 0 2rem;
-  margin: 2rem 0;
-  height: 60vh;
-}
-.search__passport,
-.search__all {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@import "/src/assets/styles/variables";
+
+.search {
+  padding: 2rem 0;
+  .search__insurance {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    margin: 2rem 0;
+    height: 60vh;
+  }
+  .search__passport,
+  .search__all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .search__form {
     display: flex;
     flex-direction: column;
@@ -21,6 +26,19 @@
     app-autocomplete-input {
       margin-bottom: 2rem;
     }
+  }
+  .search__title {
+    display: flex;
+    width: 6rem;
+    justify-content: space-around;
+    align-items: center;
+    i {
+      color: $base-color400;
+      font-size: 1.3rem;
+    }
+  }
+  .longLabel {
+    width: 13rem;
   }
 }
 

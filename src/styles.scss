@@ -8,6 +8,15 @@ body {
 }
 
 /**
+Header
+*/
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: white;
+}
+/**
 Buttons
 */
 .button__secondary {
@@ -49,8 +58,8 @@ Inputs
 }
 
 /**
-Toast
+Headers
 */
-.p-toast {
-  width: 22rem !important;
+h3 {
+  color: $base-color500;
 }
