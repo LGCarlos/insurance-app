@@ -9,15 +9,28 @@
   border-bottom: 1px solid $base-color100;
   box-shadow: 0 3px 4px #0000001a, 0 24px 36px #0000000a;
   .header__left {
+    margin-right: 1.3rem;
     .logo {
       width: $logo-mobile-size;
     }
   }
+  .header__center {
+    width: -webkit-fill-available;
+    a {
+      margin: 0 0.6rem;
+      text-decoration: none;
+      color: $base-color500;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    a:hover {
+      color: $base-color300;
+    }
+  }
   .header__right {
     display: flex;
-    display: flex;
-    width: 6rem;
+    width: 9rem;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
   }
 }
