@@ -1,6 +1,9 @@
 @import "/src/assets/styles/variables";
 
-// Selectors
+/**
+Header - navbar
+*/
+
 .header {
   padding: 0.5rem 1rem;
   display: flex;
@@ -8,12 +11,16 @@
   align-items: center;
   border-bottom: 1px solid $base-color100;
   box-shadow: 0 3px 4px #0000001a, 0 24px 36px #0000000a;
+
+  //logo
   .header__left {
     margin-right: 1.3rem;
     .logo {
       width: $logo-mobile-size;
     }
   }
+
+  // Anchors navigation
   .header__center {
     width: -webkit-fill-available;
     a {
@@ -27,6 +34,8 @@
       color: $base-color300;
     }
   }
+
+  // Profile anf languages
   .header__right {
     display: flex;
     width: 9rem;

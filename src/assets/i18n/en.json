@@ -8,7 +8,8 @@
       "findByInsurance": "Find by Insurance",
       "findByPassport": "Find by Passport",
       "findAll": "Find all",
-      "totalRecords": "Total Records"
+      "totalRecords": "Total Records",
+      "labelChartClients": "Clients registered by insurance"
     },
     "labels": ["Car", "HealthCare", "Work", "Home"],
     "dialogs": {
@@ -52,6 +53,7 @@
       "passport": "Passport",
       "firstServiceDate": "Start Date",
       "lastServiceDate": "End Date",
+      "chooseInsurances": "Choose insurances",
       "insurances": [
         { "name": "car" },
         { "name": "home" },

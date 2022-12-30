@@ -1,0 +1,17 @@
+/**
+Form
+*/
+form {
+  margin-bottom: 2rem;
+  .form__checkbox {
+    margin: 1rem 0;
+  }
+}
+
+/**
+Container buttons Save - Cancel Input Dialog component
+*/
+.buttons_container {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,6 +1,11 @@
 @import "/src/assets/styles/variables";
 
+/**
+Search page - home
+*/
+// Main container
 .search {
+  // Type of search
   .search__insurance {
     display: flex;
     flex-wrap: wrap;
@@ -40,7 +45,7 @@
     width: 13rem;
   }
 }
-
+// Cards
 app-card:nth-child(odd) {
   animation: carAnimationLeft 3s ease 0s 1 normal none;
 }
