@@ -1,0 +1,31 @@
+@import "/src/assets/styles/variables";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid $base-color100;
+  padding: 2rem 0;
+  background-color: $base-color100;
+  margin-top: 2rem;
+  .logo {
+    width: 9rem;
+  }
+  h4,
+  i {
+    color: $base-color400;
+  }
+  h4 {
+    margin: 0.5rem 0;
+  }
+  .socialmedia {
+    width: 37vw;
+    margin: 2.3rem 0 0 0;
+    display: flex;
+    justify-content: space-evenly;
+    i {
+      font-size: 2rem;
+    }
+  }
+}

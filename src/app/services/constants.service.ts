@@ -5,6 +5,11 @@ import { InsuranceCard, Langs } from '../models/CommonModels';
   providedIn: 'root',
 })
 export class ConstantsService {
+  // Social media urls
+  public static GitHub: string = 'https://github.com/LGCarlos/';
+  public static Linkedin: string =
+    'https://www.linkedin.com/in/carlos-js-lopez';
+
   // Server Url API
   public static ServerUrl: string = 'https://api.example.com/';
 

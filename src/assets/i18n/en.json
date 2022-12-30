@@ -9,7 +9,8 @@
       "findByPassport": "Find by Passport",
       "findAll": "Find all",
       "totalRecords": "Total Records",
-      "labelChartClients": "Clients registered by insurance"
+      "labelChartClients": "Clients registered by insurance",
+      "footerDescription": "insuranceApp Powered by LGCarlos"
     },
     "labels": ["Car", "HealthCare", "Work", "Home"],
     "dialogs": {
