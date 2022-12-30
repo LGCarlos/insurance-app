@@ -1,18 +1,27 @@
-.search__insurance {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 0 2rem;
-  margin: 2rem 0;
-  height: 60vh;
-}
-.search__passport,
-.search__all {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@import "/src/assets/styles/variables";
+
+/**
+Search page - home
+*/
+// Main container
+.search {
+  // Type of search
+  .search__insurance {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    margin: 2rem 0;
+    height: 60vh;
+  }
+  .search__passport,
+  .search__all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .search__form {
     display: flex;
     flex-direction: column;
@@ -22,8 +31,21 @@
       margin-bottom: 2rem;
     }
   }
+  .search__title {
+    display: flex;
+    width: 6rem;
+    justify-content: space-around;
+    align-items: center;
+    i {
+      color: $base-color400;
+      font-size: 1.3rem;
+    }
+  }
+  .longLabel {
+    width: 13rem;
+  }
 }
-
+// Cards
 app-card:nth-child(odd) {
   animation: carAnimationLeft 3s ease 0s 1 normal none;
 }

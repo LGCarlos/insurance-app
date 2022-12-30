@@ -1,46 +1,48 @@
-<app-button
-  [label]="'common.buttons.back' | translate"
-  (onClick)="goBack()"
-></app-button>
-<div>
-  <div class="button__secondary">
-    <app-button
-      [label]="'common.buttons.delete' | translate"
-      icon="pi pi-trash"
-      [disabled]="!selected"
-      (onClick)="delete()"
-    ></app-button>
+<div class="wrapper">
+  <app-button
+    [label]="'common.buttons.back' | translate"
+    (onClick)="goBack()"
+  ></app-button>
+  <div class="container__button--results">
+    <div class="button__secondary">
+      <app-button
+        [label]="'common.buttons.delete' | translate"
+        icon="pi pi-trash"
+        [disabled]="!selected"
+        (onClick)="delete()"
+      ></app-button>
+    </div>
+    <div class="button__secondary">
+      <app-button
+        [label]="'common.buttons.update' | translate"
+        icon="pi pi-user-edit"
+        [disabled]="!selected"
+        (onClick)="update()"
+      ></app-button>
+    </div>
+    <div class="button__secondary">
+      <app-button
+        [label]="'common.buttons.add' | translate"
+        icon="pi pi-user-plus"
+        (onClick)="create()"
+      ></app-button>
+    </div>
   </div>
-  <div class="button__secondary">
-    <app-button
-      [label]="'common.buttons.update' | translate"
-      icon="pi pi-user-edit"
-      [disabled]="!selected"
-      (onClick)="update()"
-    ></app-button>
-  </div>
-  <div class="button__secondary">
-    <app-button
-      [label]="'common.buttons.add' | translate"
-      icon="pi pi-user-plus"
-      (onClick)="create()"
-    ></app-button>
-  </div>
-</div>
 
-<app-table
-  [data]="displayedData"
-  [totalRecords]="totalRecords"
-  [headers]="headers"
-  (onLazyLoad)="onLazyLoad($event)"
-  (onRowSelect)="onRowSelect($event)"
-  [loading]="loading"
->
-</app-table>
-<app-confirm-dialog
-  [toggle]="showDialog.asObservable()"
-  [message]="'common.dialogs.deleteMessage' | translate"
-  [header]="'common.dialogs.deleteHeader' | translate"
-  (onConfirm)="confirmDelete()"
->
-</app-confirm-dialog>
+  <app-table
+    [data]="displayedData"
+    [totalRecords]="totalRecords"
+    [headers]="headers"
+    (onLazyLoad)="onLazyLoad($event)"
+    (onRowSelect)="onRowSelect($event)"
+    [loading]="loading"
+  >
+  </app-table>
+  <app-confirm-dialog
+    [toggle]="showDialog.asObservable()"
+    [message]="'common.dialogs.deleteMessage' | translate"
+    [header]="'common.dialogs.deleteHeader' | translate"
+    (onConfirm)="confirmDelete()"
+  >
+  </app-confirm-dialog>
+</div>

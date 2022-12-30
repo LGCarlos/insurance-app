@@ -1,32 +1,34 @@
-<p-table
-  [value]="data"
-  [lazy]="true"
-  (onLazyLoad)="loadData($event)"
-  responsiveLayout="scroll"
-  [(selection)]="selectedRow"
-  (selectionChange)="onSelectionChange($event)"
-  [paginator]="true"
-  [rows]="rows"
-  [totalRecords]="totalRecords"
-  [loading]="loading"
->
-  <ng-template pTemplate="header">
-    <tr class="table-tr">
-      <th style="width: 3rem"></th>
-      <th *ngFor="let title of getTitles()" pSortableColumn="{{ title }}">
-        {{ title }}
-      </th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-rowData let-value="value">
-    <tr class="table-tr">
-      <td *ngIf="selectable">
-        <p-tableRadioButton [value]="rowData"></p-tableRadioButton>
-      </td>
-      <td *ngFor="let col of getVisibleColumns()">
-        {{ rowData[col] }}
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
-<div>totalRecords : {{ totalRecords }}</div>
+<div class="wrapper">
+  <p-table
+    [value]="data"
+    [lazy]="true"
+    (onLazyLoad)="loadData($event)"
+    responsiveLayout="scroll"
+    [(selection)]="selectedRow"
+    (selectionChange)="onSelectionChange($event)"
+    [paginator]="true"
+    [rows]="rows"
+    [totalRecords]="totalRecords"
+    [loading]="loading"
+  >
+    <ng-template pTemplate="header">
+      <tr class="table-tr">
+        <th style="width: 3rem"></th>
+        <th *ngFor="let title of getTitles()" pSortableColumn="{{ title }}">
+          {{ title }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-value="value">
+      <tr class="table-tr">
+        <td *ngIf="selectable">
+          <p-tableRadioButton [value]="rowData"></p-tableRadioButton>
+        </td>
+        <td *ngFor="let col of getVisibleColumns()">
+          {{ rowData[col] }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <h3>{{ "common.subtitles.totalRecords" | translate }}: {{ totalRecords }}</h3>
+</div>

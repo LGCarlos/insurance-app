@@ -8,8 +8,33 @@ body {
 }
 
 /**
+Header
+*/
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: white;
+}
+
+/**
+Wrapper container page
+*/
+.wrapper {
+  padding: 2rem 1rem;
+}
+
+/**
+Dialog
+*/
+.p-dialog {
+  margin-top: 4rem;
+}
+
+/**
 Buttons
 */
+// Secondary button
 .button__secondary {
   width: fit-content;
   .p-button {
@@ -17,40 +42,120 @@ Buttons
     color: $base-button-color;
   }
 }
-
+// Secondary button: hover
 .button__secondary:hover {
   .p-button {
     background-color: $base-button-color;
     color: white;
   }
 }
-
+// Size any button
 .p-button {
-  min-width: 8rem;
+  min-width: 9rem;
 }
-
-.buttons_container {
+// Buttons add-new-delete
+.container__button--results {
   display: flex;
-  justify-content: space-between;
+  margin: 3rem 4rem 0rem 4rem;
+  justify-content: space-around;
+  // Size
+  .p-button {
+    min-width: 3rem;
+    // Icon button
+    .p-button-icon-left {
+      margin-right: 0 !important;
+    }
+    // Text button
+    .p-button-label {
+      display: none;
+    }
+  }
 }
 
 /**
 Inputs
 */
-
+// Container which wraps input Text and input Calendar
 .input__container {
   display: flex;
   flex-direction: column;
   width: 70%;
+  padding-top: 1rem;
+  // Label inputs
   label {
     color: $base-color500;
     font-weight: 600;
+    padding-bottom: 0.6rem;
   }
 }
 
 /**
-Toast
+Dialog-Form (Add-new)
 */
-.p-toast {
-  width: 22rem !important;
+.dialog__form {
+  // Input text field
+  app-text-input {
+    .p-inputtext {
+      margin-bottom: 1rem !important;
+    }
+  }
+  // Input calendar field
+  app-calendar-input {
+    .p-inputtext {
+      width: 10rem;
+      margin-bottom: 0 !important;
+    }
+  }
+  // Input checkbox fields
+  .checkbox__label {
+    color: $base-color500;
+    font-weight: 600;
+  }
+  app-checkbox-input {
+    .field-checkbox {
+      display: flex;
+      align-items: center;
+      .p-checkbox {
+        margin: 0.5rem 0.8rem 0 0;
+      }
+      label {
+        color: $base-color500;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+/**
+Headers
+*/
+h3 {
+  color: $base-color500;
+}
+
+/**
+Media.queries
+*/
+
+@media (min-width: $breakpoint-computer) {
+  /**
+Dialog update and create
+*/
+  .p-dialog {
+    width: 24vw !important;
+  }
+  .container__button--results {
+    .p-button {
+      min-width: 9rem;
+      .p-button-icon-left {
+        margin-right: 0.5;
+      }
+      .p-button-label {
+        display: block;
+      }
+    }
+  }
 }

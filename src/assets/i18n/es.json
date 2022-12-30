@@ -5,9 +5,11 @@
       "statistsics": "Estadísticas"
     },
     "subtitles": {
-      "findByInsurance": "Búsqueda por seguro",
-      "findByPassport": "Búsqueda por pasaporte",
-      "findAll": "Buscar todos"
+      "findByInsurance": "Busq. por tipo",
+      "findByPassport": "Por pasaporte",
+      "findAll": "Todos",
+      "totalRecords": "Total resultados",
+      "labelChartClients": "Clientes registrados por seguro"
     },
     "labels": ["Coche", "Salud", "Trabajo", "Casa"],
     "dialogs": {
@@ -51,6 +53,7 @@
       "passport": "Pasaporte",
       "firstServiceDate": "Fecha alta",
       "lastServiceDate": "Fecha baja",
+      "chooseInsurances": "Escoge los seguros",
       "insurances": [
         { "name": "coche" },
         { "name": "casa" },
