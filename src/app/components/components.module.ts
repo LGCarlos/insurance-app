@@ -17,6 +17,7 @@ import { ToastModule } from 'primeng/toast';
 import { ChartModule } from 'primeng/chart';
 import { ToastComponent } from './toast/toast.component';
 import { ChartComponent } from './chart/chart.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ChartComponent } from './chart/chart.component';
     InputDialogComponent,
     ToastComponent,
     ChartComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +50,7 @@ import { ChartComponent } from './chart/chart.component';
     InputDialogComponent,
     ToastComponent,
     ChartComponent,
+    FooterComponent,
   ],
   providers: [ConfirmationService, DialogService],
 })

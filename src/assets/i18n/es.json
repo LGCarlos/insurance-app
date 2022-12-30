@@ -9,7 +9,8 @@
       "findByPassport": "Por pasaporte",
       "findAll": "Todos",
       "totalRecords": "Total resultados",
-      "labelChartClients": "Clientes registrados por seguro"
+      "labelChartClients": "Clientes registrados por seguro",
+      "footerDescription": "insuranceApp Generada por LGCarlos"
     },
     "labels": ["Coche", "Salud", "Trabajo", "Casa"],
     "dialogs": {
