@@ -234,15 +234,41 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   update() {
     this.commonService.dialogForm = this.fb.group({
-      firstName: [this.selectedRow.firstName, Validators.required],
-      lastName: [this.selectedRow.lastName, Validators.required],
-      passport: [this.selectedRow.passport, Validators.required],
+      firstName: [
+        this.selectedRow.firstName,
+        [
+          Validators.required,
+          Validators.pattern('^[A-Za-z]+$'),
+          Validators.minLength(2),
+          Validators.maxLength(20),
+        ],
+      ],
+      lastName: [
+        this.selectedRow.lastName,
+        [
+          Validators.required,
+          Validators.pattern('^[A-Za-z]+$'),
+          Validators.minLength(2),
+          Validators.maxLength(20),
+        ],
+      ],
+      passport: [
+        this.selectedRow.passport,
+        [
+          Validators.required,
+          Validators.minLength(9),
+          Validators.maxLength(9),
+          // Only letters and numbers
+          Validators.pattern('^[A-Za-z0-9]+$'),
+        ],
+      ],
       firstServiceDate: [
         new Date(this.selectedRow.firstServiceDate),
         Validators.required,
       ],
       insurances: [
         UtilsService.getCurrentCheckboxValues(this.selectedRow.insurance),
+        Validators.required,
       ],
     });
     this.openDialog(this.dialogs.updateHeader).subscribe(
@@ -271,11 +297,36 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   create() {
     this.commonService.dialogForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      passport: ['', Validators.required],
+      firstName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[A-Za-z]+$'),
+          Validators.minLength(2),
+          Validators.maxLength(20),
+        ],
+      ],
+      lastName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[A-Za-z]+$'),
+          Validators.minLength(2),
+          Validators.maxLength(20),
+        ],
+      ],
+      passport: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(9),
+          Validators.maxLength(9),
+          // Only letters and numbers
+          Validators.pattern('^[A-Za-z0-9]+$'),
+        ],
+      ],
       firstServiceDate: ['', Validators.required],
-      insurances: [],
+      insurances: ['', Validators.required],
     });
     this.openDialog(this.dialogs.createHeader).subscribe(
       (obj: { valid: boolean; form: any }) => {

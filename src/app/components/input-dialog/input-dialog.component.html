@@ -2,14 +2,17 @@
   <app-text-input
     [title]="'common.inputs.firstName' | translate"
     [inputControlValue]="getFormControl('firstName')"
+    [propertie]="'common.invalid.fullName' | translate"
   ></app-text-input>
   <app-text-input
     [title]="'common.inputs.lastName' | translate"
     [inputControlValue]="getFormControl('lastName')"
+    [propertie]="'common.invalid.fullName' | translate"
   ></app-text-input>
   <app-text-input
     [title]="'common.inputs.passport' | translate"
     [inputControlValue]="getFormControl('passport')"
+    [propertie]="'common.invalid.passport' | translate"
   ></app-text-input>
   <div class="form__checkbox">
     <label class="checkbox__label">{{

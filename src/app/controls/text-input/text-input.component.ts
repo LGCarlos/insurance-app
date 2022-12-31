@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class TextInputComponent implements OnInit {
   @Input() title = '';
+  @Input() propertie = '';
   @Input() inputControlValue: FormControl = new FormControl('');
 
   constructor() {}
