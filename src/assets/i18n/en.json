@@ -61,6 +61,10 @@
         { "name": "healthCare" },
         { "name": "work" }
       ]
+    },
+    "invalid": {
+      "fullName": "May only contain at least 2 letters",
+      "passport": "May only contain 9 characters"
     }
   }
 }
