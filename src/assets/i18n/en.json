@@ -33,6 +33,7 @@
     },
     "buttons": {
       "search": "Search",
+      "searchAll": "See",
       "back": "Go back",
       "delete": "Delete",
       "update": "Update",

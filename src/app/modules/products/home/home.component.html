@@ -5,7 +5,7 @@
       <i class="pi pi-users"></i>
     </div>
     <app-button
-      [label]="'common.buttons.search' | translate"
+      [label]="'common.buttons.searchAll' | translate"
       (onClick)="onSubmit('all')"
     ></app-button>
   </div>
@@ -14,12 +14,14 @@
       <h3>{{ "common.subtitles.findByInsurance" | translate }}</h3>
       <i class="pi pi-shield"></i>
     </div>
-    <app-card
-      *ngFor="let insurance of insurances"
-      [backgroundImageColor]="insurance.background"
-      [typeCard]="insurance.type"
-      (click)="searchBy(insurance.type)"
-    ></app-card>
+    <div class="insurance__cards">
+      <app-card
+        *ngFor="let insurance of insurances"
+        [backgroundImageColor]="insurance.background"
+        [typeCard]="insurance.type"
+        (click)="searchBy(insurance.type)"
+      ></app-card>
+    </div>
   </div>
   <div class="search__passport">
     <div class="search__title longLabel">

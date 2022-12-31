@@ -140,12 +140,28 @@ h3 {
 Media.queries
 */
 
-@media (min-width: $breakpoint-computer) {
+@media (min-width: $breakpoint-tablet) {
+  /**
+Statistsics
+*/
+  .header {
+    height: 6rem;
+    .logo {
+      width: 4rem !important;
+    }
+    a {
+      font-size: 1.6rem;
+    }
+  }
+
   /**
 Dialog update and create
 */
   .p-dialog {
-    width: 24vw !important;
+    width: 26rem;
+    .p-dialog-content {
+      width: 32rem;
+    }
   }
   .container__button--results {
     .p-button {
@@ -156,6 +172,19 @@ Dialog update and create
       .p-button-label {
         display: block;
       }
+    }
+  }
+
+  /**
+Statistsics
+*/
+  app-statistsics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    canvas {
+      width: 41.5rem;
+      height: 41.5rem;
     }
   }
 }

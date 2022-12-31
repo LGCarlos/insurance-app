@@ -13,7 +13,12 @@ Search page - home
     align-items: center;
     padding: 0 2rem;
     margin: 2rem 0;
-    height: 60vh;
+    height: 80vh;
+    .insurance__cards {
+      display: flex;
+      flex-wrap: wrap;
+      height: inherit;
+    }
   }
   .search__passport,
   .search__all {
@@ -21,6 +26,7 @@ Search page - home
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 1.5rem;
   }
   .search__form {
     display: flex;
@@ -58,7 +64,7 @@ app-card:nth-child(even) {
   0% {
     animation-timing-function: ease-in;
     opacity: 1;
-    transform: translateX(-48px);
+    transform: translateX(-500px);
   }
 
   24% {
@@ -67,22 +73,22 @@ app-card:nth-child(even) {
 
   40% {
     animation-timing-function: ease-in;
-    transform: translateX(-26px);
+    transform: translateX(-66px);
   }
 
   65% {
     animation-timing-function: ease-in;
-    transform: translateX(-13px);
+    transform: translateX(-43px);
   }
 
   82% {
     animation-timing-function: ease-in;
-    transform: translateX(-6.5px);
+    transform: translateX(-16.5px);
   }
 
   93% {
     animation-timing-function: ease-in;
-    transform: translateX(-4px);
+    transform: translateX(-8px);
   }
 
   25%,
@@ -106,7 +112,7 @@ app-card:nth-child(even) {
   0% {
     animation-timing-function: ease-in;
     opacity: 1;
-    transform: translateX(48px);
+    transform: translateX(500px);
   }
 
   24% {
@@ -115,22 +121,22 @@ app-card:nth-child(even) {
 
   40% {
     animation-timing-function: ease-in;
-    transform: translateX(-26px);
+    transform: translateX(66px);
   }
 
   65% {
     animation-timing-function: ease-in;
-    transform: translateX(-13px);
+    transform: translateX(43px);
   }
 
   82% {
     animation-timing-function: ease-in;
-    transform: translateX(-6.5px);
+    transform: translateX(16.5px);
   }
 
   93% {
     animation-timing-function: ease-in;
-    transform: translateX(-4px);
+    transform: translateX(8px);
   }
 
   25%,
@@ -146,5 +152,28 @@ app-card:nth-child(even) {
     animation-timing-function: ease-out;
     opacity: 1;
     transform: translateX(0px);
+  }
+}
+
+/**
+Media queries
+*/
+// Tablet
+@media (min-width: $breakpoint-tablet) {
+  /**
+Search types
+*/
+  .search {
+    .search__insurance {
+      display: flex;
+      padding: 0 2rem;
+      margin: 2rem 0;
+      height: 54vh;
+      .insurance__cards {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
   }
 }
