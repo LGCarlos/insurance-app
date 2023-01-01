@@ -33,6 +33,7 @@
     },
     "buttons": {
       "search": "Buscar",
+      "searchAll": "Ver",
       "back": "Volver",
       "delete": "Eliminar",
       "update": "Modificar",

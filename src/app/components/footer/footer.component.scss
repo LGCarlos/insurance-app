@@ -29,3 +29,12 @@
     }
   }
 }
+
+//Laptops
+@media (min-width: $breakpoint-laptop) {
+  .footer {
+    .socialmedia {
+      width: 12vw;
+    }
+  }
+}

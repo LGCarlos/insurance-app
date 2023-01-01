@@ -41,3 +41,49 @@ Dropdown languges
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/**
+Media queries
+*/
+// Tablet
+@media (min-width: $breakpoint-tablet) {
+  /**
+Dropdown
+*/
+  .dropdown {
+    .lang__container {
+      width: 2rem;
+      height: 2rem;
+    }
+    .dropdown-content {
+      margin: 1.9rem 0 0 -1rem;
+      .content {
+        padding: 1rem;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        .content__option {
+          width: 1.5rem;
+          height: 1.5rem;
+          margin-right: 0.3rem;
+        }
+      }
+    }
+  }
+}
+
+//Laptops
+@media (min-width: $breakpoint-laptop) {
+  /**
+Dropdown
+*/
+  .dropdown {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    .dropdown-content {
+      margin: 12rem 0 0 -1rem !important;
+      min-width: 9.5rem;
+    }
+  }
+}

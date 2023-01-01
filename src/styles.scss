@@ -27,8 +27,24 @@ Wrapper container page
 /**
 Dialog
 */
+// All dialogs
 .p-dialog {
   margin-top: 4rem;
+}
+
+// Update/ Create dialog
+p-dynamicdialog {
+  .p-dialog-content {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+}
+
+// Confirm dialog
+.p-confirm-dialog {
+  .p-dialog-content {
+    padding-top: 1.3rem !important;
+  }
 }
 
 /**
@@ -139,13 +155,26 @@ h3 {
 /**
 Media.queries
 */
+// Tablets
+@media (min-width: $breakpoint-tablet) {
+  /**
+Header
+*/
+  .header {
+    height: 6rem;
+    .logo {
+      width: 4rem !important;
+    }
+    a {
+      font-size: 1.6rem;
+    }
+  }
 
-@media (min-width: $breakpoint-computer) {
   /**
 Dialog update and create
 */
   .p-dialog {
-    width: 24vw !important;
+    width: 26rem;
   }
   .container__button--results {
     .p-button {
@@ -156,6 +185,70 @@ Dialog update and create
       .p-button-label {
         display: block;
       }
+    }
+  }
+
+  /**
+Statistsics
+*/
+  app-statistsics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    canvas {
+      width: 41.5rem;
+      height: 41.5rem;
+    }
+  }
+}
+
+//Laptops
+@media (min-width: $breakpoint-laptop) {
+  /**
+Header
+*/
+  .header {
+    height: 5rem;
+    .logo {
+      width: 3rem !important;
+    }
+    a {
+      font-size: 1.2rem;
+    }
+  }
+
+  /**
+Statistsics
+*/
+  app-statistsics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    canvas {
+      width: 25rem;
+      height: 25rem;
+    }
+  }
+  /**
+Results
+*/
+  //Go back button
+  #button-goback {
+    margin-left: 4rem;
+  }
+  // CRUD buttons
+  .container__button--results {
+    justify-content: space-between;
+    width: 33vw;
+  }
+  /**
+Dialog
+*/
+  //Create / Update dialog
+  p-dynamicdialog {
+    .p-dialog {
+      width: 32rem !important;
+      height: 85vh;
     }
   }
 }

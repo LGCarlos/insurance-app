@@ -1,7 +1,26 @@
+@import "/src/assets/styles/variables";
+
 /**
 Avatar - profile
 */
 .p-avatar {
   width: 3rem;
   height: 3rem;
+}
+
+/**
+Media queries
+*/
+// Tablet
+@media (min-width: $breakpoint-tablet) {
+  /**
+Avatar
+*/
+  .p-avatar {
+    .p-avatar-lg {
+      width: 4rem;
+      height: 4rem;
+      margin-left: 2rem;
+    }
+  }
 }
