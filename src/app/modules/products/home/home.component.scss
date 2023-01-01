@@ -51,7 +51,8 @@ Search page - home
     width: 13rem;
   }
 }
-// Cards
+
+// Cards Right and left
 app-card:nth-child(odd) {
   animation: carAnimationLeft 3s ease 0s 1 normal none;
 }
@@ -174,6 +175,125 @@ Search types
         justify-content: space-around;
         align-items: center;
       }
+    }
+  }
+}
+
+//Laptops
+@media (min-width: $breakpoint-laptop) {
+  // Search
+  .search {
+    //by insurance
+    .search__insurance {
+      // Cards position
+      .insurance__cards {
+        width: 95vw;
+      }
+    }
+  }
+
+  // Cards animation
+  app-card:nth-child(odd) {
+    animation: carAnimationTop 3s ease 0s 1 normal none;
+  }
+  app-card:nth-child(even) {
+    animation: carAnimationBottom 3s ease 0s 1 normal none;
+  }
+
+  /** Animations */
+  // Top
+  @keyframes carAnimationTop {
+    0% {
+      animation-timing-function: ease-in;
+      opacity: 1;
+      transform: translateY(-500px);
+    }
+
+    24% {
+      opacity: 1;
+    }
+
+    40% {
+      animation-timing-function: ease-in;
+      transform: translateY(-66px);
+    }
+
+    65% {
+      animation-timing-function: ease-in;
+      transform: translateY(-43px);
+    }
+
+    82% {
+      animation-timing-function: ease-in;
+      transform: translateY(-16.5px);
+    }
+
+    93% {
+      animation-timing-function: ease-in;
+      transform: translateY(-8px);
+    }
+
+    25%,
+    55%,
+    75%,
+    87%,
+    98% {
+      animation-timing-function: ease-out;
+      transform: translateY(0px);
+    }
+
+    100% {
+      animation-timing-function: ease-out;
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  // Bottom
+  @keyframes carAnimationBottom {
+    0% {
+      animation-timing-function: ease-in;
+      opacity: 1;
+      transform: translateY(500px);
+    }
+
+    24% {
+      opacity: 1;
+    }
+
+    40% {
+      animation-timing-function: ease-in;
+      transform: translateY(66px);
+    }
+
+    65% {
+      animation-timing-function: ease-in;
+      transform: translateY(43px);
+    }
+
+    82% {
+      animation-timing-function: ease-in;
+      transform: translateY(16.5px);
+    }
+
+    93% {
+      animation-timing-function: ease-in;
+      transform: translateY(8px);
+    }
+
+    25%,
+    55%,
+    75%,
+    87%,
+    98% {
+      animation-timing-function: ease-out;
+      transform: translateY(0px);
+    }
+
+    100% {
+      animation-timing-function: ease-out;
+      opacity: 1;
+      transform: translateY(0px);
     }
   }
 }

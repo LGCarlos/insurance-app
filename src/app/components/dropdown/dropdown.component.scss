@@ -71,3 +71,19 @@ Dropdown
     }
   }
 }
+
+//Laptops
+@media (min-width: $breakpoint-laptop) {
+  /**
+Dropdown
+*/
+  .dropdown {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    .dropdown-content {
+      margin: 12rem 0 0 -1rem !important;
+      min-width: 9.5rem;
+    }
+  }
+}

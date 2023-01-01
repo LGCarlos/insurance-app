@@ -1,8 +1,10 @@
 <div class="wrapper">
-  <app-button
-    [label]="'common.buttons.back' | translate"
-    (onClick)="goBack()"
-  ></app-button>
+  <div id="button-goback">
+    <app-button
+      [label]="'common.buttons.back' | translate"
+      (onClick)="goBack()"
+    ></app-button>
+  </div>
   <div class="container__button--results">
     <div class="button__secondary">
       <app-button
