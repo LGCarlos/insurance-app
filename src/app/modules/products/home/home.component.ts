@@ -59,6 +59,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  getFormControl(name: string) {
+    return this.form && this.form.controls
+      ? (this.form.controls[name] as FormControl)
+      : new FormControl();
+  }
+
   filterPassport(event: any) {
     // In a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
     let filtered: any[] = [];
@@ -71,12 +77,6 @@ export class HomeComponent implements OnInit {
     this.suggestions = filtered;
   }
 
-  getFormControl(name: string) {
-    return this.form && this.form.controls
-      ? (this.form.controls[name] as FormControl)
-      : new FormControl();
-  }
-
   filterInsurance(type: any) {
     // Filter array by insurance
     this.commonService.clientsResults = this.clients.filter(
@@ -86,26 +86,6 @@ export class HomeComponent implements OnInit {
     this.commonService.clientsSearchFilters = type;
     // Navigate to results page
     this.router.navigate([ConstantsService.UrlsComponents.Results]);
-  }
-
-  searchBy(type: string) {
-    switch (type) {
-      case 'car':
-        this.filterInsurance(type);
-        break;
-      case 'healthCare':
-        this.filterInsurance(type);
-        break;
-      case 'work':
-        this.filterInsurance(type);
-        break;
-      case 'home':
-        this.filterInsurance(type);
-        break;
-
-      default:
-        break;
-    }
   }
 
   onSubmit(type: string) {

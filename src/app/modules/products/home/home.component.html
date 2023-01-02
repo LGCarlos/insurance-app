@@ -19,7 +19,7 @@
         *ngFor="let insurance of insurances"
         [backgroundImageColor]="insurance.background"
         [typeCard]="insurance.type"
-        (click)="searchBy(insurance.type)"
+        (click)="filterInsurance(insurance.type)"
       ></app-card>
     </div>
   </div>
