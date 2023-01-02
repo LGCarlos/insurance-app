@@ -1,6 +1,17 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { ToastComponent } from './toast.component';
+
+@Component({
+  selector: 'p-toast',
+  template: '',
+})
+class MockPToastComponent {
+  @Input() title: any;
+  @Input() inputControlValue: any;
+}
 
 describe('ToastComponent', () => {
   let component: ToastComponent;
@@ -8,9 +19,9 @@ describe('ToastComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToastComponent ]
-    })
-    .compileComponents();
+      imports: [TranslateModule.forRoot()],
+      declarations: [ToastComponent, MockPToastComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

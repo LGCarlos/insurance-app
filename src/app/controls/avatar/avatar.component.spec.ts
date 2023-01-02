@@ -1,6 +1,15 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AvatarComponent } from './avatar.component';
+
+@Component({
+  selector: 'p-avatar',
+  template: '',
+})
+class MockPAvatarComponent {
+  @Input() label: any;
+}
 
 describe('AvatarComponent', () => {
   let component: AvatarComponent;
@@ -8,9 +17,8 @@ describe('AvatarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AvatarComponent ]
-    })
-    .compileComponents();
+      declarations: [AvatarComponent, MockPAvatarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

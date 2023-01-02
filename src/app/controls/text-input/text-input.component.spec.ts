@@ -1,6 +1,15 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TextInputComponent } from './text-input.component';
+
+@Component({
+  selector: 'input',
+  template: '',
+})
+class MockPInputComponent {
+  @Input() formControl: any;
+}
 
 describe('TextInputComponent', () => {
   let component: TextInputComponent;
@@ -8,9 +17,8 @@ describe('TextInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextInputComponent ]
-    })
-    .compileComponents();
+      declarations: [TextInputComponent, MockPInputComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

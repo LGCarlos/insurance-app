@@ -1,6 +1,17 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ChartComponent } from './chart.component';
+
+@Component({
+  selector: 'p-chart',
+  template: '',
+})
+class MockAppChartComponent {
+  @Input() data: any;
+  @Input() labels: any;
+}
 
 describe('ChartComponent', () => {
   let component: ChartComponent;
@@ -8,9 +19,9 @@ describe('ChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChartComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+      declarations: [ChartComponent, MockAppChartComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
