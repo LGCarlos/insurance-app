@@ -1,6 +1,16 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonComponent } from './button.component';
+
+@Component({
+  selector: 'button',
+  template: '',
+})
+class MockButtonComponent {
+  @Input() icon: any;
+  @Input() label: any;
+}
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -8,9 +18,8 @@ describe('ButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonComponent, MockButtonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

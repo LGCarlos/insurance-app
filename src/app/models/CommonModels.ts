@@ -9,7 +9,7 @@ export interface UserSearchRequestModel {
 
 // User search Response
 export interface UserModel {
-  user: string;
+  user?: string;
 }
 
 // User search Response

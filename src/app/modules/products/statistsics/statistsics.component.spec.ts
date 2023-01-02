@@ -1,6 +1,14 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { StatistsicsComponent } from './statistsics.component';
+
+@Component({
+  selector: 'app-chart',
+  template: '',
+})
+class MockAppChartComponent {}
 
 describe('StatistsicsComponent', () => {
   let component: StatistsicsComponent;
@@ -8,9 +16,9 @@ describe('StatistsicsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatistsicsComponent ]
-    })
-    .compileComponents();
+      imports: [TranslateModule.forRoot()],
+      declarations: [StatistsicsComponent, MockAppChartComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

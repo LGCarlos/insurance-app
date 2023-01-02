@@ -1,6 +1,19 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalendarInputComponent } from './calendar-input.component';
+
+@Component({
+  selector: 'p-calendar',
+  template: '',
+})
+class MockPCalendarComponent {
+  @Input() title: any;
+  @Input() inputControlValue: any;
+  @Input() showIcon: any;
+  @Input() formControl: any;
+  @Input() minDate: any;
+}
 
 describe('CalendarInputComponent', () => {
   let component: CalendarInputComponent;
@@ -8,9 +21,8 @@ describe('CalendarInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalendarInputComponent ]
-    })
-    .compileComponents();
+      declarations: [CalendarInputComponent, MockPCalendarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     this.urls = ConstantsService.UrlsComponents;
     this.userApiService.search({ token: ConstantsService.Token }).subscribe(
       (res) => {
-        this.user = res.user;
+        this.user = res.user ? res.user : '';
         // Get first letter of User
         this.label = this.user.charAt(0);
       },
