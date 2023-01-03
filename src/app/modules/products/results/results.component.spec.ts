@@ -71,6 +71,22 @@ describe('ResultsComponent', () => {
     fixture = TestBed.createComponent(ResultsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    let row = {
+      clientId: 0,
+      firstName: '',
+      lastName: '',
+      passport: '',
+      firstServiceDate: '',
+    };
+    let case1 = { rows: 10, first: 10 };
+    let case2 = { rows: 10, first: 0 };
+    component.enableButtons(row);
+    component.onRowSelect(row);
+    component.onLazyLoad(case1);
+    component.onLazyLoad(case2);
+    component.goBack();
+    component.delete();
+    component.openDialog('new');
   });
 
   it('should create', () => {

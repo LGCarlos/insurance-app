@@ -31,7 +31,6 @@ describe('HeaderComponent', () => {
     'UserApiService',
     ['search']
   );
-  const spyService = jasmine.createSpy();
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, TranslateModule.forRoot()],
@@ -45,8 +44,17 @@ describe('HeaderComponent', () => {
   });
 
   beforeEach(() => {
-    spyUserApiService.search.and.returnValue(of({}));
+    spyUserApiService.search.and.returnValue(of({ user: 'admin' }));
 
+    fixture = TestBed.createComponent(HeaderComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.changeLanguage('es');
+    component.goToStatistics();
+  });
+
+  beforeEach(() => {
+    spyUserApiService.search.and.returnValue(of({ user: '' }));
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

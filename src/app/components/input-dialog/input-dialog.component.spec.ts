@@ -73,6 +73,9 @@ describe('InputDialogComponent', () => {
     fixture = TestBed.createComponent(InputDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    component.onConfirm();
+    component.onReject();
   });
 
   it('should create', () => {
