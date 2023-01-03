@@ -1,4 +1,3 @@
-import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -19,6 +18,7 @@ describe('DropdownComponent', () => {
     fixture = TestBed.createComponent(DropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.handleClick('');
   });
 
   it('should create', () => {

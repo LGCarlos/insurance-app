@@ -68,6 +68,12 @@ describe('HomeComponent', () => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.passportsList = [{ name: 'eee' }];
+    component.filterPassport('EE');
+    component.filterInsurance('car');
+    component.onSubmit('all');
+    component.onSubmit('passport');
+    component.onSubmit('any');
   });
 
   it('should create', () => {

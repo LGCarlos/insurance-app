@@ -18,6 +18,7 @@ describe('CardComponent', () => {
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.getImagePath('');
   });
 
   it('should create', () => {

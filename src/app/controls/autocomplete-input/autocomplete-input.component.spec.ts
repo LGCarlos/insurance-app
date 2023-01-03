@@ -29,6 +29,7 @@ describe('AutocompleteInputComponent', () => {
     fixture = TestBed.createComponent(AutocompleteInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.onChange({});
   });
 
   it('should create', () => {

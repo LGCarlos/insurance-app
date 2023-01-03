@@ -26,6 +26,7 @@ describe('ButtonComponent', () => {
     fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.handleClick();
   });
 
   it('should create', () => {

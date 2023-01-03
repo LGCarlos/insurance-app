@@ -29,6 +29,32 @@ describe('CalendarInputComponent', () => {
     fixture = TestBed.createComponent(CalendarInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.title = 'Start Date';
+    component.ngDoCheck();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CalendarInputComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.title = 'Fecha alta';
+    component.ngDoCheck();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CalendarInputComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.title = 'End Date';
+    component.ngDoCheck();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CalendarInputComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    component.title = 'Fecha baja';
+    component.ngDoCheck();
   });
 
   it('should create', () => {

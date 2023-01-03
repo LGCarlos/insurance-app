@@ -34,6 +34,19 @@ describe('TableComponent', () => {
     fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    component.headers = [
+      {
+        headerText: 'id',
+        propertyName: 'id',
+        visible: true,
+      },
+    ];
+
+    component.getTitles();
+    component.getVisibleColumns();
+    component.onSelectionChange(null);
+    component.loadData({});
   });
 
   it('should create', () => {

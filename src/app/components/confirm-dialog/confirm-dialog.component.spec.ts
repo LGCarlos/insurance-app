@@ -40,6 +40,8 @@ describe('ConfirmDialogComponent', () => {
     fixture = TestBed.createComponent(ConfirmDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    component.confirm();
   });
 
   it('should create', () => {
